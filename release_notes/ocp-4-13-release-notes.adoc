@@ -86,15 +86,14 @@ This release adds improvements related to the following components and concepts.
 [id="ocp-4-13-nodes"]
 === Nodes
 
-==== Graceful Node Shutdown
+[id="ocp-4-13-graceful-node-shutdown"]
+==== Graceful node shutdown
 
-Graceful Node Shutdown (GNS) enables kubelet to delay forcible eviction of pods in the event of a node shutdown.
-This is important for users who want to ensure that workloads that execute critical operations cannot be interrupted.
-For example, if an operator that flashes network card firmware is shut in a disorderly fashion, hardware can be damaged.
+A graceful node shutdown delays forcible eviction of pods during a node shutdown. You can configure the kublet to enable graceful node shutdowns to ensure that pods running critical workloads are not interrupted.
 
-GNS gives admins the ability to specify a termination grace period for protected workloads.
-This ensures time for the pod to shut down in an orderly manner, including operations that are monitoring the activity of sensitive workloads.
-Admins can also tag workloads to specify the order of shut down.
+To configure graceful node shutdowns, specify a termination grace period for regular and critical pods. A termination grace period ensures that the pod shuts down in an orderly manner.
+For example, if an operator that flashes network card firmware is shut down in a disorderly fashion, hardware can be damaged.
+You can also add priority classes to pods to specify the order of shut down.
 
 For further information see <link>[topic_title]
 
