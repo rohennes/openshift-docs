@@ -25,6 +25,13 @@ Administrators must be able to manage their many Edge sites and local services i
 Currently, disabling CPU load balancing is not supported by cgroup v2. As a result, you might not get the desired behavior from performance profiles if you have cgroup v2 enabled. Enabling cgroup v2 is not recommended if you are using performance profiles.
 ====
 
+[IMPORTANT]
+====
+In {product-title} 4.14, if you apply a performance profile all nodes in the cluster will reboot. This reboot includes control plane nodes and worker nodes that were not targeted by the performance profile. This is a known issue because {product-title} 4.14 uses Linux control group version 2 (cgroup v2) in alignment with RHEL 9. The low latency tuning features associated with the performance profile do not support cgroup v2, therefore the nodes reboot to switch back to the cgroup v1 configuration.
+
+To revert all nodes in the cluster to the cgroups v2 configuration, you must edit the `Node` resource. (link:https://issues.redhat.com/browse/OCPBUGS-16976[*OCPBUGS-16976*])
+====
+
 {product-title} also supports workload hints for the Node Tuning Operator that can tune the `PerformanceProfile` to meet the demands of different industry environments. Workload hints are available for `highPowerConsumption` (very low latency at the cost of increased power consumption) and `realTime` (priority given to optimum latency). A combination of `true/false` settings for these hints can be used to deal with application-specific workload profiles and requirements.
 
 Workload hints simplify the fine-tuning of performance to industry sector settings. Instead of a “one size fits all” approach, workload hints can cater to usage patterns such as placing priority on:
