@@ -8,6 +8,10 @@ toc::[]
 
 Installer-provisioned installation on bare metal nodes deploys and configures the infrastructure that an {product-title} cluster runs on. This guide provides a methodology to achieving a successful installer-provisioned bare-metal installation. The following diagram illustrates the installation environment in phase 1 of deployment:
 
+1. Start with xref:../architecture/architecture.adoc#architecture-overview-architecture[Architecture].
+2. xref:../security/container_security/security-understanding.adoc[Security and compliance]. 
+This first xref is ok because it is an assembly. The second xref is not OK because it does not have an anchor ID.
+
 image::210_OpenShift_Baremetal_IPI_Deployment_updates_0122_1.png[Deployment phase one]
 
 For the installation, the key elements in the previous diagram are:
