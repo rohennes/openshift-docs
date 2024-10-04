@@ -457,7 +457,7 @@ h2:hover>a.anchor, h2>a.anchor:hover, h3:hover>a.anchor, h3>a.anchor:hover, h4:h
     display: flex;
     flex-flow: column;
     top: 190px;
-    bottom: 10px;
+    bottom: 50px;
     display: block;
     -webkit-animation: fadein 0.35s ease-in; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 0.35s ease-in; /* Firefox < 16 */
