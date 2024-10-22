@@ -99,11 +99,11 @@ Seed image:: OCI container image generated from a dedicated cluster with the tar
 
 Seed cluster:: Dedicated {sno} cluster that you use to create a seed image and is deployed with the target {product-title} version.
 
-{lcao}:: Generates the seed image, embeds the seed image URL in the live installation ISO, and reconfigures the host during remote site deployment.
+{lcao}:: Generates the seed image.
 
 Image Based Install (IBI) Operator:: When you deploy managed clusters, the IBI Operator creates a configuration ISO from the site-specific resources you define in the hub cluster, and attaches the configuration ISO to the preinstalled host by using a bare-metal provisioning service.
 
-`openshift-install` program:: Use the `openshift-install` program to manually create a configuration ISO. Attach the configuration ISO to a preinstalled host to complete the deployment.
+`openshift-install` program:: Creates the installation and configuration ISO, and embeds the seed image URL in the live installation ISO. Attach the configuration ISO to a preinstalled host to complete the deployment.
 
 [role="_additional-resources"]
 .Additional resources

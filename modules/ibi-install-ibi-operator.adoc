@@ -27,17 +27,13 @@ The IBI Operator is part of the multicluster engine for Kubernetes operator (MCE
 $ oc edit multiclusterengine
 ----
 
-. Set the `enabled` specification to `true` for the `image-based-install-operator` component:
+. Set the `enabled` specification to `true` for the `image-based-install-operator` component by running the following command:
 +
 [source,text]
 ----
-...
-  - enabled: true
-    name: image-based-install-operator
-...
+$ oc patch multiclusterengines.multicluster.openshift.io multiclusterengine --type='merge' \
+-p='{"spec": {"overrides": {"components": [{"name": "image-based-install-operator","enabled": true}] }}}'
 ----
-
-. Save the file.
 
 .Verification
 
