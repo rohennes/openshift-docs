@@ -41,7 +41,7 @@ imageDigestSources:
     source: "quay.io/openshift-release-dev/ocp-release"
 ----
 
-|`extraManifestsRefs`|`string`| Specify a `configMap` resource containing additional manifests to be applied to the target cluster.
+|`extraManifestsRefs`|`string`| Specify a `ConfigMap` resource containing additional manifests to be applied to the target cluster.
 
 |`bareMetalHostRef`|`string`| Specify the `bareMetalHost` resource to use for the cluster deployment
 
@@ -57,6 +57,6 @@ proxy:
   noProxy: "no_proxy.example.com"
 ----
 
-|`caBundleRef`|`string`| Specify a `configMap` resource containing the new bundle of trusted certificates for the host.
+|`caBundleRef`|`string`| Specify a `ConfigMap` resource containing the new bundle of trusted certificates for the host.
 
 |====

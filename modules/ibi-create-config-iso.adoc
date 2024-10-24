@@ -219,6 +219,7 @@ spec:
 [IMPORTANT]
 ====
 If your cluster deployment requires a proxy configuration, you must do the following:
+
 * Create a seed image from a seed cluster featuring a proxy configuration. The proxy configurations do not have to match.
 * Configure the machineNetwork field in your installation manifest.
 ====

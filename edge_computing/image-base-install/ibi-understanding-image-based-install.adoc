@@ -36,10 +36,10 @@ Ship the preinstalled and validated hosts to a remote site and rapidly reconfigu
 You can choose from two methods to preinstall and configure your SNO clusters.
 
 Using the `openshift-install` program::
-For a single-node OpenShift cluster, use the `openshift-install` program only to manually create the live installation ISO that is common to all hosts. Then, use the program again to create the configuration ISO which ensures that the host is unique. For more information, see “Deploying a single-node OpenShift cluster using the installation program”.
+For a {sno} cluster, use the `openshift-install` program only to manually create the live installation ISO that is common to all hosts. Then, use the program again to create the configuration ISO which ensures that the host is unique. For more information, see “Deploying a {sno} cluster using the installation program”.
 
 Using the IBI Operator::
-For managed single-node OpenShift clusters, you can use the `openshift-install` with the Image Based Install (IBI) Operator to scale up the operations. The program creates the live installation ISO and then, the IBI Operator creates one configuration ISO for each host. For more information, see “Deploying a single-node OpenShift using the IBI Operator”.
+For managed {sno} clusters, you can use the `openshift-install` with the Image Based Install (IBI) Operator to scale up the operations. The program creates the live installation ISO and then the IBI Operator creates one configuration ISO for each host. For more information, see “Deploying a {sno} using the IBI Operator”.
 
 [id="ibi-installation-overview"]
 === Image-based installation for {sno} clusters
@@ -115,7 +115,7 @@ include::modules/ibi-image-based-install-cluster-guide.adoc[leveloffset=+1]
 [role="_additional-resources"]
 .Additional resources
 
-* xref:../../edge_computing/image-base-install/ibi-preparing-for-image-based-install.adoc#cnf-image-based-upgrade-shared-container-partition_ibi-preparing-image-based-install[Configuring a shared container directory between ostree stateroots]
+* xref:../../edge_computing/image-base-install/ibi-preparing-for-image-based-install.adoc#cnf-image-based-upgrade-shared-container-partition_ibi-preparing-image-based-install[Configuring a shared container partition between ostree stateroots]
 
 include::modules/ibi-validated-software-versions.adoc[leveloffset=+1]
 

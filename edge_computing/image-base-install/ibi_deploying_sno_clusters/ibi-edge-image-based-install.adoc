@@ -17,7 +17,7 @@ The Image Based Install (IBI) Operator creates a configuration ISO from these re
 You must create distinct configuration resources for each bare-metal host. 
 ====
 
-See the following high-level steps to deploy a preinstalled host in a clusters with a hub-and-spoke architecture:
+See the following high-level steps to deploy a preinstalled host in a cluster with a hub-and-spoke architecture:
 
 * Install the IBI Operator on the hub cluster.
 * Create site-specific configuration resources in the hub cluster for each host.
