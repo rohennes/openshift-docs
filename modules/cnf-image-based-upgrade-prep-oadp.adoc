@@ -5,6 +5,7 @@
 [id="cnf-image-based-upgrade-prep-oadp_{context}"]
 = Creating {oadp-short} ConfigMap objects for the image-based upgrade with {lcao}
 
+[role="_abstract"]
 Create your {oadp-short} resources that are used to back up and restore your resources during the upgrade.
 
 .Prerequisites
