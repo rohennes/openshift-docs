@@ -21,7 +21,7 @@ spec:
   - services
   - job
   - poddisruptionbudgets
-  - <application_custom_resources> <1>
+  - <application_custom_resources>
   excludedClusterScopedResources:
   - persistentVolumes
 ---
@@ -38,4 +38,7 @@ spec:
   backupName:
     backup-app
 ----
-<1> Define custom resources for your application.
++
+--
+* `- <application_custom_resources>` Define custom resources for your application.
+--

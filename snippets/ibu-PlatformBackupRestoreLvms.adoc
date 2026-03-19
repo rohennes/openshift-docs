@@ -24,9 +24,12 @@ metadata:
   labels:
     velero.io/storage-location: default
   annotations:
-    lca.openshift.io/apply-wave: "2" <1>
+    lca.openshift.io/apply-wave: "2"
 spec:
   backupName:
     lvmcluster
 ----
-<1> The `lca.openshift.io/apply-wave` value must be lower than the values specified in the application `Restore` CRs.
++
+--
+* `lca.openshift.io/apply-wave: "2"` The `lca.openshift.io/apply-wave` value must be lower than the values specified in the application `Restore` CRs.
+--
