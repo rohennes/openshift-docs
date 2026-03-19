@@ -24,7 +24,6 @@ Create your {oadp-short} resources that are used to back up and restore your res
 .. If the target cluster is managed by {rh-rhacm}, add the following YAML file for backing up and restoring {rh-rhacm} artifacts:
 +
 --
-.PlatformBackupRestore.yaml for {rh-rhacm}
 include::snippets/ibu-PlatformBackupRestore.adoc[]
 --
 
@@ -43,10 +42,8 @@ include::snippets/ibu-ApplicationClusterScopedBackupRestore.adoc[]
 .. Create the {oadp-short} CRs for your namespace-scoped application artifacts.
 +
 --
-.Example {oadp-short} CRs namespace-scoped application artifacts when LSO is used
 include::snippets/ibu-ApplicationBackupRestoreLso.adoc[]
 
-.Example {oadp-short} CRs namespace-scoped application artifacts when {lvms} is used
 include::snippets/ibu-ApplicationBackupRestoreLvms.adoc[]
 
 [IMPORTANT]
