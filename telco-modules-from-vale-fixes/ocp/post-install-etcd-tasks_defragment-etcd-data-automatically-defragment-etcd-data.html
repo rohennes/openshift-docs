@@ -1,0 +1,2096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 2.0.26">
+<title>Red Hat OpenShift Container Platform</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+<style>
+/*! Asciidoctor default stylesheet | MIT License | https://asciidoctor.org */
+/* Uncomment the following line when using as a custom stylesheet */
+/* @import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700"; */
+html{font-family:sans-serif;-webkit-text-size-adjust:100%}
+a{background:none}
+a:focus{outline:thin dotted}
+a:active,a:hover{outline:0}
+h1{font-size:2em;margin:.67em 0}
+b,strong{font-weight:bold}
+abbr{font-size:.9em}
+abbr[title]{cursor:help;border-bottom:1px dotted #dddddf;text-decoration:none}
+dfn{font-style:italic}
+hr{height:0}
+mark{background:#ff0;color:#000}
+code,kbd,pre,samp{font-family:monospace;font-size:1em}
+pre{white-space:pre-wrap}
+q{quotes:"\201C" "\201D" "\2018" "\2019"}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sup{top:-.5em}
+sub{bottom:-.25em}
+img{border:0}
+svg:not(:root){overflow:hidden}
+figure{margin:0}
+audio,video{display:inline-block}
+audio:not([controls]){display:none;height:0}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{border:0;padding:0}
+button,input,select,textarea{font-family:inherit;font-size:100%;margin:0}
+button,input{line-height:normal}
+button,select{text-transform:none}
+button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+input[type=checkbox],input[type=radio]{padding:0}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+textarea{overflow:auto;vertical-align:top}
+table{border-collapse:collapse;border-spacing:0}
+*,::before,::after{box-sizing:border-box}
+html,body{font-size:100%}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;line-height:1;position:relative;cursor:auto;-moz-tab-size:4;-o-tab-size:4;tab-size:4;word-wrap:anywhere;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
+a:hover{cursor:pointer}
+img,object,embed{max-width:100%;height:auto}
+object,embed{height:100%}
+img{-ms-interpolation-mode:bicubic}
+.left{float:left!important}
+.right{float:right!important}
+.text-left{text-align:left!important}
+.text-right{text-align:right!important}
+.text-center{text-align:center!important}
+.text-justify{text-align:justify!important}
+.hide{display:none}
+img,object,svg{display:inline-block;vertical-align:middle}
+textarea{height:auto;min-height:50px}
+select{width:100%}
+.subheader,.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{line-height:1.45;color:#7a2518;font-weight:400;margin-top:0;margin-bottom:.25em}
+div,dl,dt,dd,ul,ol,li,h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6,pre,form,p,blockquote,th,td{margin:0;padding:0}
+a{color:#2156a5;text-decoration:underline;line-height:inherit}
+a:hover,a:focus{color:#1d4b8f}
+a img{border:0}
+p{line-height:1.6;margin-bottom:1.25em;text-rendering:optimizeLegibility}
+p aside{font-size:.875em;line-height:1.35;font-style:italic}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{font-family:"Open Sans","DejaVu Sans",sans-serif;font-weight:300;font-style:normal;color:#ba3925;text-rendering:optimizeLegibility;margin-top:1em;margin-bottom:.5em;line-height:1.0125em}
+h1 small,h2 small,h3 small,#toctitle small,.sidebarblock>.content>.title small,h4 small,h5 small,h6 small{font-size:60%;color:#e99b8f;line-height:0}
+h1{font-size:2.125em}
+h2{font-size:1.6875em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.375em}
+h4,h5{font-size:1.125em}
+h6{font-size:1em}
+hr{border:solid #dddddf;border-width:1px 0 0;clear:both;margin:1.25em 0 1.1875em}
+em,i{font-style:italic;line-height:inherit}
+strong,b{font-weight:bold;line-height:inherit}
+small{font-size:60%;line-height:inherit}
+code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;color:rgba(0,0,0,.9)}
+ul,ol,dl{line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
+ul,ol{margin-left:1.5em}
+ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0}
+ul.circle{list-style-type:circle}
+ul.disc{list-style-type:disc}
+ul.square{list-style-type:square}
+ul.circle ul:not([class]),ul.disc ul:not([class]),ul.square ul:not([class]){list-style:inherit}
+ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
+dl dt{margin-bottom:.3125em;font-weight:bold}
+dl dd{margin-bottom:1.25em}
+blockquote{margin:0 0 1.25em;padding:.5625em 1.25em 0 1.1875em;border-left:1px solid #ddd}
+blockquote,blockquote p{line-height:1.6;color:rgba(0,0,0,.85)}
+@media screen and (min-width:768px){h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2}
+h1{font-size:2.75em}
+h2{font-size:2.3125em}
+h3,#toctitle,.sidebarblock>.content>.title{font-size:1.6875em}
+h4{font-size:1.4375em}}
+table{background:#fff;margin-bottom:1.25em;border:1px solid #dedede;word-wrap:normal}
+table thead,table tfoot{background:#f7f8f7}
+table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:.5em .625em .625em;font-size:inherit;color:rgba(0,0,0,.8);text-align:left}
+table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
+table tr.even,table tr.alt{background:#f8f8f7}
+table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{line-height:1.6}
+h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
+h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
+.center{margin-left:auto;margin-right:auto}
+.stretch{width:100%}
+.clearfix::before,.clearfix::after,.float-group::before,.float-group::after{content:" ";display:table}
+.clearfix::after,.float-group::after{clear:both}
+:not(pre).nobreak{word-wrap:normal}
+:not(pre).nowrap{white-space:nowrap}
+:not(pre).pre-wrap{white-space:pre-wrap}
+:not(pre):not([class^=L])>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background:#f7f7f8;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
+pre{color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;line-height:1.45;text-rendering:optimizeSpeed}
+pre code,pre pre{color:inherit;font-size:inherit;line-height:inherit}
+pre.nowrap,pre.nowrap pre{white-space:pre;word-wrap:normal}
+em em{font-style:normal}
+strong strong{font-weight:400}
+.keyseq{color:rgba(51,51,51,.8)}
+kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background:#f7f7f7;border:1px solid #ccc;border-radius:3px;box-shadow:0 1px 0 rgba(0,0,0,.2),inset 0 0 0 .1em #fff;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
+.keyseq kbd:first-child{margin-left:0}
+.keyseq kbd:last-child{margin-right:0}
+.menuseq,.menuref{color:#000}
+.menuseq b:not(.caret),.menuref{font-weight:inherit}
+.menuseq{word-spacing:-.02em}
+.menuseq b.caret{font-size:1.25em;line-height:.8}
+.menuseq i.caret{font-weight:bold;text-align:center;width:.45em}
+b.button::before,b.button::after{position:relative;top:-1px;font-weight:400}
+b.button::before{content:"[";padding:0 3px 0 2px}
+b.button::after{content:"]";padding:0 2px 0 3px}
+p a>code:hover{color:rgba(0,0,0,.9)}
+#header,#content,#footnotes,#footer{width:100%;margin:0 auto;max-width:62.5em;*zoom:1;position:relative;padding-left:.9375em;padding-right:.9375em}
+#header::before,#header::after,#content::before,#content::after,#footnotes::before,#footnotes::after,#footer::before,#footer::after{content:" ";display:table}
+#header::after,#content::after,#footnotes::after,#footer::after{clear:both}
+#content{margin-top:1.25em}
+#content::before{content:none}
+#header>h1:first-child{color:rgba(0,0,0,.85);margin-top:2.25rem;margin-bottom:0}
+#header>h1:first-child+#toc{margin-top:8px;border-top:1px solid #dddddf}
+#header>h1:only-child{border-bottom:1px solid #dddddf;padding-bottom:8px}
+#header .details{border-bottom:1px solid #dddddf;line-height:1.45;padding-top:.25em;padding-bottom:.25em;padding-left:.25em;color:rgba(0,0,0,.6);display:flex;flex-flow:row wrap}
+#header .details span:first-child{margin-left:-.125em}
+#header .details span.email a{color:rgba(0,0,0,.85)}
+#header .details br{display:none}
+#header .details br+span::before{content:"\00a0\2013\00a0"}
+#header .details br+span.author::before{content:"\00a0\22c5\00a0";color:rgba(0,0,0,.85)}
+#header .details br+span#revremark::before{content:"\00a0|\00a0"}
+#header #revnumber{text-transform:capitalize}
+#header #revnumber::after{content:"\00a0"}
+#content>h1:first-child:not([class]){color:rgba(0,0,0,.85);border-bottom:1px solid #dddddf;padding-bottom:8px;margin-top:0;padding-top:1rem;margin-bottom:1.25rem}
+#toc{border-bottom:1px solid #e7e7e9;padding-bottom:.5em}
+#toc>ul{margin-left:.125em}
+#toc ul.sectlevel0>li>a{font-style:italic}
+#toc ul.sectlevel0 ul.sectlevel1{margin:.5em 0}
+#toc ul{font-family:"Open Sans","DejaVu Sans",sans-serif;list-style-type:none}
+#toc li{line-height:1.3334;margin-top:.3334em}
+#toc a{text-decoration:none}
+#toc a:active{text-decoration:underline}
+#toctitle{color:#7a2518;font-size:1.2em}
+@media screen and (min-width:768px){#toctitle{font-size:1.375em}
+body.toc2{padding-left:15em;padding-right:0}
+body.toc2 #header>h1:nth-last-child(2){border-bottom:1px solid #dddddf;padding-bottom:8px}
+#toc.toc2{margin-top:0!important;background:#f8f8f7;position:fixed;width:15em;left:0;top:0;border-right:1px solid #e7e7e9;border-top-width:0!important;border-bottom-width:0!important;z-index:1000;padding:1.25em 1em;height:100%;overflow:auto}
+#toc.toc2 #toctitle{margin-top:0;margin-bottom:.8rem;font-size:1.2em}
+#toc.toc2>ul{font-size:.9em;margin-bottom:0}
+#toc.toc2 ul ul{margin-left:0;padding-left:1em}
+#toc.toc2 ul.sectlevel0 ul.sectlevel1{padding-left:0;margin-top:.5em;margin-bottom:.5em}
+body.toc2.toc-right{padding-left:0;padding-right:15em}
+body.toc2.toc-right #toc.toc2{border-right-width:0;border-left:1px solid #e7e7e9;left:auto;right:0}}
+@media screen and (min-width:1280px){body.toc2{padding-left:20em;padding-right:0}
+#toc.toc2{width:20em}
+#toc.toc2 #toctitle{font-size:1.375em}
+#toc.toc2>ul{font-size:.95em}
+#toc.toc2 ul ul{padding-left:1.25em}
+body.toc2.toc-right{padding-left:0;padding-right:20em}}
+#content #toc{border:1px solid #e0e0dc;margin-bottom:1.25em;padding:1.25em;background:#f8f8f7;border-radius:4px}
+#content #toc>:first-child{margin-top:0}
+#content #toc>:last-child{margin-bottom:0}
+#footer{max-width:none;background:rgba(0,0,0,.8);padding:1.25em}
+#footer-text{color:hsla(0,0%,100%,.8);line-height:1.44}
+#content{margin-bottom:.625em}
+.sect1{padding-bottom:.625em}
+@media screen and (min-width:768px){#content{margin-bottom:1.25em}
+.sect1{padding-bottom:1.25em}}
+.sect1:last-child{padding-bottom:0}
+.sect1+.sect1{border-top:1px solid #e7e7e9}
+#content h1>a.anchor,h2>a.anchor,h3>a.anchor,#toctitle>a.anchor,.sidebarblock>.content>.title>a.anchor,h4>a.anchor,h5>a.anchor,h6>a.anchor{position:absolute;z-index:1001;width:1.5ex;margin-left:-1.5ex;display:block;text-decoration:none!important;visibility:hidden;text-align:center;font-weight:400}
+#content h1>a.anchor::before,h2>a.anchor::before,h3>a.anchor::before,#toctitle>a.anchor::before,.sidebarblock>.content>.title>a.anchor::before,h4>a.anchor::before,h5>a.anchor::before,h6>a.anchor::before{content:"\00A7";font-size:.85em;display:block;padding-top:.1em}
+#content h1:hover>a.anchor,#content h1>a.anchor:hover,h2:hover>a.anchor,h2>a.anchor:hover,h3:hover>a.anchor,#toctitle:hover>a.anchor,.sidebarblock>.content>.title:hover>a.anchor,h3>a.anchor:hover,#toctitle>a.anchor:hover,.sidebarblock>.content>.title>a.anchor:hover,h4:hover>a.anchor,h4>a.anchor:hover,h5:hover>a.anchor,h5>a.anchor:hover,h6:hover>a.anchor,h6>a.anchor:hover{visibility:visible}
+#content h1>a.link,h2>a.link,h3>a.link,#toctitle>a.link,.sidebarblock>.content>.title>a.link,h4>a.link,h5>a.link,h6>a.link{color:#ba3925;text-decoration:none}
+#content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
+details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
+details{margin-left:1.25rem}
+details>summary{cursor:pointer;display:block;position:relative;line-height:1.6;margin-bottom:.625rem;outline:none;-webkit-tap-highlight-color:transparent}
+details>summary::-webkit-details-marker{display:none}
+details>summary::before{content:"";border:solid transparent;border-left:solid;border-width:.3em 0 .3em .5em;position:absolute;top:.5em;left:-1.25rem;transform:translateX(15%)}
+details[open]>summary::before{border:solid transparent;border-top:solid;border-width:.5em .3em 0;transform:translateY(15%)}
+details>summary::after{content:"";width:1.25rem;height:1em;position:absolute;top:.3em;left:-1.25rem}
+.admonitionblock td.content>.title,.audioblock>.title,.exampleblock>.title,.imageblock>.title,.listingblock>.title,.literalblock>.title,.stemblock>.title,.openblock>.title,.paragraph>.title,.quoteblock>.title,table.tableblock>.title,.verseblock>.title,.videoblock>.title,.dlist>.title,.olist>.title,.ulist>.title,.qlist>.title,.hdlist>.title{text-rendering:optimizeLegibility;text-align:left;font-family:"Noto Serif","DejaVu Serif",serif;font-size:1rem;font-style:italic}
+table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
+.paragraph.lead>p,#preamble>.sectionbody>[class=paragraph]:first-of-type p{font-size:1.21875em;line-height:1.6;color:rgba(0,0,0,.85)}
+.admonitionblock>table{border-collapse:separate;border:0;background:none;width:100%}
+.admonitionblock>table td.icon{text-align:center;width:80px}
+.admonitionblock>table td.icon img{max-width:none}
+.admonitionblock>table td.icon .title{font-weight:bold;font-family:"Open Sans","DejaVu Sans",sans-serif;text-transform:uppercase}
+.admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
+.admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content{border:1px solid #e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;border-radius:4px}
+.sidebarblock{border:1px solid #dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;border-radius:4px}
+.sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
+.exampleblock>.content>:first-child,.sidebarblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child,.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.literalblock pre,.listingblock>.content>pre{border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
+@media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
+@media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
+.literalblock pre,.listingblock>.content>pre:not(.highlight),.listingblock>.content>pre[class=highlight],.listingblock>.content>pre[class^="highlight "]{background:#f7f7f8}
+.literalblock.output pre{color:#f7f7f8;background:rgba(0,0,0,.9)}
+.listingblock>.content{position:relative}
+.listingblock pre>code{display:block}
+.listingblock code[data-lang]::before{display:none;content:attr(data-lang);position:absolute;font-size:.75em;top:.425rem;right:.5rem;line-height:1;text-transform:uppercase;color:inherit;opacity:.5}
+.listingblock:hover code[data-lang]::before{display:block}
+.listingblock.terminal pre .command::before{content:attr(data-prompt);padding-right:.5em;color:inherit;opacity:.5}
+.listingblock.terminal pre .command:not([data-prompt])::before{content:"$"}
+.listingblock pre.highlightjs{padding:0}
+.listingblock pre.highlightjs>code{padding:1em;border-radius:4px}
+.listingblock pre.prettyprint{border-width:0}
+.prettyprint{background:#f7f7f8}
+pre.prettyprint .linenums{line-height:1.45;margin-left:2em}
+pre.prettyprint li{background:none;list-style-type:inherit;padding-left:0}
+pre.prettyprint li code[data-lang]::before{opacity:1}
+pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
+table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
+table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
+table.linenotable td.code{padding-left:.75em}
+table.linenotable td.linenos,pre.pygments .linenos{border-right:1px solid;opacity:.35;padding-right:.5em;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+pre.pygments span.linenos{display:inline-block;margin-right:.75em}
+.quoteblock{margin:0 1em 1.25em 1.5em;display:table}
+.quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
+.quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
+.quoteblock blockquote{margin:0;padding:0;border:0}
+.quoteblock blockquote::before{content:"\201c";float:left;font-size:2.75em;font-weight:bold;line-height:.6em;margin-left:-.6em;color:#7a2518;text-shadow:0 1px 2px rgba(0,0,0,.1)}
+.quoteblock blockquote>.paragraph:last-child p{margin-bottom:0}
+.quoteblock .attribution{margin-top:.75em;margin-right:.5ex;text-align:right}
+.verseblock{margin:0 1em 1.25em}
+.verseblock pre{font-family:"Open Sans","DejaVu Sans",sans-serif;font-size:1.15rem;color:rgba(0,0,0,.85);font-weight:300;text-rendering:optimizeLegibility}
+.verseblock pre strong{font-weight:400}
+.verseblock .attribution{margin-top:1.25rem;margin-left:.5ex}
+.quoteblock .attribution,.verseblock .attribution{font-size:.9375em;line-height:1.45;font-style:italic}
+.quoteblock .attribution br,.verseblock .attribution br{display:none}
+.quoteblock .attribution cite,.verseblock .attribution cite{display:block;letter-spacing:-.025em;color:rgba(0,0,0,.6)}
+.quoteblock.abstract blockquote::before,.quoteblock.excerpt blockquote::before,.quoteblock .quoteblock blockquote::before{display:none}
+.quoteblock.abstract blockquote,.quoteblock.abstract p,.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{line-height:1.6;word-spacing:0}
+.quoteblock.abstract{margin:0 1em 1.25em;display:block}
+.quoteblock.abstract>.title{margin:0 0 .375em;font-size:1.15em;text-align:center}
+.quoteblock.excerpt>blockquote,.quoteblock .quoteblock{padding:0 0 .25em 1em;border-left:.25em solid #dddddf}
+.quoteblock.excerpt,.quoteblock .quoteblock{margin-left:0}
+.quoteblock.excerpt blockquote,.quoteblock.excerpt p,.quoteblock .quoteblock blockquote,.quoteblock .quoteblock p{color:inherit;font-size:1.0625rem}
+.quoteblock.excerpt .attribution,.quoteblock .quoteblock .attribution{color:inherit;font-size:.85rem;text-align:left;margin-right:0}
+p.tableblock:last-child{margin-bottom:0}
+td.tableblock>.content{margin-bottom:1.25em;word-wrap:anywhere}
+td.tableblock>.content>:last-child{margin-bottom:-1.25em}
+table.tableblock,th.tableblock,td.tableblock{border:0 solid #dedede}
+table.grid-all>*>tr>*{border-width:1px}
+table.grid-cols>*>tr>*{border-width:0 1px}
+table.grid-rows>*>tr>*{border-width:1px 0}
+table.frame-all{border-width:1px}
+table.frame-ends{border-width:1px 0}
+table.frame-sides{border-width:0 1px}
+table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-child>*{border-top-width:0}
+table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
+table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
+table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
+table.stripes-all>*>tr,table.stripes-odd>*>tr:nth-of-type(odd),table.stripes-even>*>tr:nth-of-type(even),table.stripes-hover>*>tr:hover{background:#f8f8f7}
+th.halign-left,td.halign-left{text-align:left}
+th.halign-right,td.halign-right{text-align:right}
+th.halign-center,td.halign-center{text-align:center}
+th.valign-top,td.valign-top{vertical-align:top}
+th.valign-bottom,td.valign-bottom{vertical-align:bottom}
+th.valign-middle,td.valign-middle{vertical-align:middle}
+table thead th,table tfoot th{font-weight:bold}
+tbody tr th{background:#f7f8f7}
+tbody tr th,tbody tr th p,tfoot tr th,tfoot tr th p{color:rgba(0,0,0,.8);font-weight:bold}
+p.tableblock>code:only-child{background:none;padding:0}
+p.tableblock{font-size:1em}
+ol{margin-left:1.75em}
+ul li ol{margin-left:1.5em}
+dl dd{margin-left:1.125em}
+dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
+li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
+ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
+ul.unstyled,ol.unstyled{margin-left:0}
+li>p:empty:only-child::before{content:"";display:inline-block}
+ul.checklist>li>p:first-child{margin-left:-1em}
+ul.checklist>li>p:first-child>.fa-square-o:first-child,ul.checklist>li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
+ul.checklist>li>p:first-child>input[type=checkbox]:first-child{margin-right:.25em}
+ul.inline{display:flex;flex-flow:row wrap;list-style:none;margin:0 0 .625em -1.25em}
+ul.inline>li{margin-left:1.25em}
+.unstyled dl dt{font-weight:400;font-style:normal}
+ol.arabic{list-style-type:decimal}
+ol.decimal{list-style-type:decimal-leading-zero}
+ol.loweralpha{list-style-type:lower-alpha}
+ol.upperalpha{list-style-type:upper-alpha}
+ol.lowerroman{list-style-type:lower-roman}
+ol.upperroman{list-style-type:upper-roman}
+ol.lowergreek{list-style-type:lower-greek}
+.hdlist>table,.colist>table{border:0;background:none}
+.hdlist>table>tbody>tr,.colist>table>tbody>tr{background:none}
+td.hdlist1,td.hdlist2{vertical-align:top;padding:0 .625em}
+td.hdlist1{font-weight:bold;padding-bottom:1.25em}
+td.hdlist2{word-wrap:anywhere}
+.literalblock+.colist,.listingblock+.colist{margin-top:-.5em}
+.colist td:not([class]):first-child{padding:.4em .75em 0;line-height:1;vertical-align:top}
+.colist td:not([class]):first-child img{max-width:none}
+.colist td:not([class]):last-child{padding:.25em 0}
+.thumb,.th{line-height:0;display:inline-block;border:4px solid #fff;box-shadow:0 0 0 1px #ddd}
+.imageblock.left{margin:.25em .625em 1.25em 0}
+.imageblock.right{margin:.25em 0 1.25em .625em}
+.imageblock>.title{margin-bottom:0}
+.imageblock.thumb,.imageblock.th{border-width:6px}
+.imageblock.thumb>.title,.imageblock.th>.title{padding:0 .125em}
+.image.left,.image.right{margin-top:.25em;margin-bottom:.25em;display:inline-block;line-height:0}
+.image.left{margin-right:.625em}
+.image.right{margin-left:.625em}
+a.image{text-decoration:none;display:inline-block}
+a.image object{pointer-events:none}
+sup.footnote,sup.footnoteref{font-size:.875em;position:static;vertical-align:super}
+sup.footnote a,sup.footnoteref a{text-decoration:none}
+sup.footnote a:active,sup.footnoteref a:active,#footnotes .footnote a:first-of-type:active{text-decoration:underline}
+#footnotes{padding-top:.75em;padding-bottom:.75em;margin-bottom:.625em}
+#footnotes hr{width:20%;min-width:6.25em;margin:-.25em 0 .75em;border-width:1px 0 0}
+#footnotes .footnote{padding:0 .375em 0 .225em;line-height:1.3334;font-size:.875em;margin-left:1.2em;margin-bottom:.2em}
+#footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
+#footnotes .footnote:last-of-type{margin-bottom:0}
+#content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
+div.unbreakable{page-break-inside:avoid}
+.big{font-size:larger}
+.small{font-size:smaller}
+.underline{text-decoration:underline}
+.overline{text-decoration:overline}
+.line-through{text-decoration:line-through}
+.aqua{color:#00bfbf}
+.aqua-background{background:#00fafa}
+.black{color:#000}
+.black-background{background:#000}
+.blue{color:#0000bf}
+.blue-background{background:#0000fa}
+.fuchsia{color:#bf00bf}
+.fuchsia-background{background:#fa00fa}
+.gray{color:#606060}
+.gray-background{background:#7d7d7d}
+.green{color:#006000}
+.green-background{background:#007d00}
+.lime{color:#00bf00}
+.lime-background{background:#00fa00}
+.maroon{color:#600000}
+.maroon-background{background:#7d0000}
+.navy{color:#000060}
+.navy-background{background:#00007d}
+.olive{color:#606000}
+.olive-background{background:#7d7d00}
+.purple{color:#600060}
+.purple-background{background:#7d007d}
+.red{color:#bf0000}
+.red-background{background:#fa0000}
+.silver{color:#909090}
+.silver-background{background:#bcbcbc}
+.teal{color:#006060}
+.teal-background{background:#007d7d}
+.white{color:#bfbfbf}
+.white-background{background:#fafafa}
+.yellow{color:#bfbf00}
+.yellow-background{background:#fafa00}
+span.icon>.fa{cursor:default}
+a span.icon>.fa{cursor:inherit}
+.admonitionblock td.icon [class^="fa icon-"]{font-size:2.5em;text-shadow:1px 1px 2px rgba(0,0,0,.5);cursor:default}
+.admonitionblock td.icon .icon-note::before{content:"\f05a";color:#19407c}
+.admonitionblock td.icon .icon-tip::before{content:"\f0eb";text-shadow:1px 1px 2px rgba(155,155,0,.8);color:#111}
+.admonitionblock td.icon .icon-warning::before{content:"\f071";color:#bf6900}
+.admonitionblock td.icon .icon-caution::before{content:"\f06d";color:#bf3400}
+.admonitionblock td.icon .icon-important::before{content:"\f06a";color:#bf0000}
+.conum[data-value]{display:inline-block;color:#fff!important;background:rgba(0,0,0,.8);border-radius:50%;text-align:center;font-size:.75em;width:1.67em;height:1.67em;line-height:1.67em;font-family:"Open Sans","DejaVu Sans",sans-serif;font-style:normal;font-weight:bold}
+.conum[data-value] *{color:#fff!important}
+.conum[data-value]+b{display:none}
+.conum[data-value]::after{content:attr(data-value)}
+pre .conum[data-value]{position:relative;top:-.125em}
+b.conum *{color:inherit!important}
+.conum:not([data-value]):empty{display:none}
+dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
+h1,h2,p,td.content,span.alt,summary{letter-spacing:-.01em}
+p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
+p,blockquote,dt,td.content,td.hdlist1,span.alt,summary{font-size:1.0625rem}
+p{margin-bottom:1.25rem}
+.sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
+.exampleblock>.content{background:#fffef7;border-color:#e0e0dc;box-shadow:0 1px 4px #e0e0dc}
+.print-only{display:none!important}
+@page{margin:1.25cm .75cm}
+@media print{*{box-shadow:none!important;text-shadow:none!important}
+html{font-size:80%}
+a{color:inherit!important;text-decoration:underline!important}
+a.bare,a[href^="#"],a[href^="mailto:"]{text-decoration:none!important}
+a[href^="http:"]:not(.bare)::after,a[href^="https:"]:not(.bare)::after{content:"(" attr(href) ")";display:inline-block;font-size:.875em;padding-left:.25em}
+abbr[title]{border-bottom:1px dotted}
+abbr[title]::after{content:" (" attr(title) ")"}
+pre,blockquote,tr,img,object,svg{page-break-inside:avoid}
+thead{display:table-header-group}
+svg{max-width:100%}
+p,blockquote,dt,td.content{font-size:1em;orphans:3;widows:3}
+h2,h3,#toctitle,.sidebarblock>.content>.title{page-break-after:avoid}
+#header,#content,#footnotes,#footer{max-width:none}
+#toc,.sidebarblock,.exampleblock>.content{background:none!important}
+#toc{border-bottom:1px solid #dddddf!important;padding-bottom:0!important}
+body.book #header{text-align:center}
+body.book #header>h1:first-child{border:0!important;margin:2.5em 0 1em}
+body.book #header .details{border:0!important;display:block;padding:0!important}
+body.book #header .details span:first-child{margin-left:0!important}
+body.book #header .details br{display:block}
+body.book #header .details br+span::before{content:none!important}
+body.book #toc{border:0!important;text-align:left!important;padding:0!important;margin:0!important}
+body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-break-before:always}
+.listingblock code[data-lang]::before{display:block}
+#footer{padding:0 .9375em}
+.hide-on-print{display:none!important}
+.print-only{display:block!important}
+.hide-for-print{display:none!important}
+.show-for-print{display:inherit!important}}
+@media amzn-kf8,print{#header>h1:first-child{margin-top:1.25rem}
+.sect1{padding:0!important}
+.sect1+.sect1{border:0}
+#footer{background:none}
+#footer-text{color:rgba(0,0,0,.6);font-size:.9em}}
+@media amzn-kf8{#header,#content,#footnotes,#footer{padding:0}}
+</style>
+<style>.toc-current{font-weight: bold;} .toc-root{font-family: "Open Sans","DejaVu Sans",sans-serif;
+                       font-size: 0.9em;} #content{display: flex; flex-direction: column; flex: 1 1 auto;}
+             .nav-footer{text-align: center; margin-top: auto;}
+             .nav-footer > p > a {white-space: nowrap;}</style>
+<!-- navmap-right-toc-start -->
+<style>
+  body.navmap-has-right-toc { padding-right: 18em; }
+  #navmap-right-toc {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 16em;
+    height: 100%;
+    overflow: auto;
+    padding: 1.25em 1em;
+    background: #f8f8f7;
+    border-left: 1px solid #e7e7e9;
+    z-index: 1000;
+    font-family: "Open Sans", "DejaVu Sans", sans-serif;
+    font-size: .9em;
+  }
+  #navmap-right-toc h2 { margin-top: 0; font-size: 1.1em; }
+  #navmap-right-toc ul { list-style: none; margin: 0; padding: 0; }
+  #navmap-right-toc li { line-height: 1.35; margin: .4em 0; }
+  #navmap-right-toc li.level-3 { padding-left: 1em; }
+  #navmap-right-toc li.level-4 { padding-left: 2em; }
+  #navmap-right-toc li.level-5,
+  #navmap-right-toc li.level-6 { padding-left: 3em; }
+  #navmap-right-toc a { text-decoration: none; }
+  @media screen and (max-width: 1023px) {
+    body.navmap-has-right-toc { padding-right: 0; }
+    #navmap-right-toc {
+      position: static;
+      width: auto;
+      height: auto;
+      margin: 1em;
+      border: 1px solid #e7e7e9;
+      border-radius: 4px;
+    }
+  }
+
+
+</style>
+<!-- navmap-right-toc-end -->
+</head>
+<body id="post-install-etcd-tasks_defragment-etcd-data-automatically-defragment-etcd-data" class="book toc2 toc-left navmap-has-right-toc">
+<div id="header">
+<h1>Red Hat OpenShift Container Platform</h1>
+<div id="toc" class="toc2">
+<div id="toctitle"></div>
+<p><span class="toc-root"><a href="navigation.html">Red Hat OpenShift Container Platform</a></span></p><ul class="sectlevel1">
+<li><a href="_whats_new.html">What&#8217;s new</a>
+
+<ul class="sectlevel2">
+<li><a href="about-kmm_review-kmm-releases-and-updates.html">About the Kernel Module Management Operator</a>
+</li>
+<li><a href="hosted-control-planes-release-notes_hosted-control-planes-release-notes.html">Hosted control planes release notes</a>
+</li>
+<li><a href="review-multiarch-tuning-operator-releases-con_review-multiarch-tuning-operator-releases.html">Review Multiarch Tuning Operator releases</a>
+</li>
+</ul>
+</li>
+<li><a href="_discover.html">Discover</a>
+
+<ul class="sectlevel2">
+<li><a href="understand-platform-architecture-con_understand-platform-architecture.html">Understand platform architecture</a>
+</li>
+<li><a href="understand-nodes-pods-and-containers-con_understand-nodes-pods-and-containers.html">Understand nodes, pods, and containers</a>
+</li>
+<li><a href="evaluate-high-availability-capabilities-con_evaluate-high-availability-capabilities.html">Evaluate high availability capabilities</a>
+</li>
+<li><a href="images-about_understand-container-images-in-openshift.html">Images</a>
+</li>
+<li><a href="manage-cluster-sample-image-streams-con_manage-cluster-sample-image-streams.html">Manage cluster sample image streams</a>
+</li>
+<li><a href="understand-what-the-oc-get-mcp-output-means-con_understand-what-the-oc-get-mcp-output-means.html">Understand what the <code>oc get mcp</code> output means</a>
+</li>
+<li><a href="understanding-how-to-customize-the-kernel-behavior-on-my-nodes-to-meet-specific-needs-con_understanding-how-to-customize-the-kernel-behavior-on-my-nodes-to-meet-specific-needs.html">Customize the kernel behavior on your nodes</a>
+</li>
+<li><a href="coreos-layering-configuring-on_understand-the-on-cluster-mode-of-the-image-mode-for-openshift-feature.html">About on-cluster image mode</a>
+</li>
+<li><a href="understanding-openshift_evaluate-openshift-platform-capabilities.html">Understand Red&#160;Hat OpenShift Container Platform</a>
+</li>
+<li><a href="oke_similarities_and_differences_evaluate-openshift-kubernetes-engine.html">OpenShift Kubernetes Engine and Red&#160;Hat OpenShift Container Platform comparison</a>
+</li>
+<li><a href="hosted-control-planes-overview_compare-openshift-deployment-models.html">Introduction to hosted control planes</a>
+</li>
+<li><a href="deploy-hosted-control-planes-intro_hosted-control-planes.html">Deploy hosted control planes</a>
+</li>
+<li><a href="review-cluster-operators-con_review-cluster-operators.html">Review cluster Operators</a>
+</li>
+<li><a href="how-etcd-works_how-etcd-works.html">How etcd works</a>
+</li>
+<li><a href="security-rhcos-overview_understand-host-security-controls.html">Red Hat Enterprise Linux CoreOS (RHCOS)</a>
+</li>
+</ul>
+</li>
+<li><a href="_get_started.html">Get started</a>
+
+<ul class="sectlevel2">
+<li><a href="install-and-use-the-openshift-cli-oc-intro_install-and-use-the-openshift-cli-oc.html">Install and use the OpenShift CLI</a>
+</li>
+<li><a href="web-console-overview_access-the-web-console.html">Understand and access the web console</a>
+</li>
+<li><a href="learn-how-to-use-openshift-through-hands-on-tutorials-intro_learn-how-to-use-openshift-through-hands-on-tutorials.html">Learn how to use Red&#160;Hat OpenShift Container Platform through hands-on tutorials</a>
+</li>
+<li><a href="configure-default-pod-behavior-con_configure-default-pod-behavior.html">Configure default pod behavior</a>
+</li>
+<li><a href="configure-my-nodes-by-using-machine-config-objects-con_configure-my-nodes-by-using-machine-config-objects.html">Configure my nodes by using machine config objects</a>
+</li>
+</ul>
+</li>
+<li><a href="_plan.html">Plan</a>
+
+<ul class="sectlevel2">
+<li><a href="size-control-plane-infrastructure-con_size-control-plane-infrastructure.html">Size control plane infrastructure</a>
+</li>
+<li><a href="how-to-plan-according-to-cluster-maximums_understand-tested-cluster-limits.html">How to plan your environment according to tested cluster maximums</a>
+</li>
+<li><a href="estimate-pod-per-node-capacity-con_estimate-pod-per-node-capacity.html">Estimate pod-per-node capacity</a>
+</li>
+<li><a href="deploy-clusters-across-data-centers-con_deploy-clusters-across-data-centers.html">Deploy clusters across data centers</a>
+</li>
+<li><a href="plan-telco-core-network-deployment-con_plan-telco-core-network-deployment.html">Plan telco core network deployment</a>
+</li>
+<li><a href="plan-telco-hub-cluster-deployment-intro_plan-telco-hub-cluster-deployment.html">Plan telco hub cluster deployment</a>
+</li>
+<li><a href="plan-telco-ran-distributed-unit-deployment-intro_plan-telco-ran-distributed-unit-deployment.html">Plan telco RAN distributed unit deployment</a>
+</li>
+<li><a href="choose-an-installation-method-con_choose-an-installation-method.html">Choose an installation method</a>
+</li>
+<li><a href="compare-platform-options-con_compare-platform-options.html">Compare platform options</a>
+</li>
+<li><a href="requirements-for-hosted-control-planes-con_requirements-for-hosted-control-planes.html">Requirements for hosted control planes</a>
+</li>
+<li><a href="size-guidance-for-hosted-control-planes-con_size-guidance-for-hosted-control-planes.html">Size guidance for hosted control planes</a>
+</li>
+<li><a href="plan-a-multiple-network-architecture-con_plan-a-multiple-network-architecture.html">Plan a multiple network architecture</a>
+</li>
+<li><a href="design-and-layer-network-policy-across-the-cluster-con_design-and-layer-network-policy-across-the-cluster.html">Design and layer network policy across the cluster</a>
+</li>
+<li><a href="persistent-storage-local-top-level-overview_understand-local-storage.html">Overview of local storage options</a>
+</li>
+<li><a href="choose-registry-storage-for-your-platform-con_choose-registry-storage-for-your-platform.html">Choose registry storage for your platform</a>
+</li>
+<li><a href="understand-machine-lifecycle-management-options-con_understand-machine-lifecycle-management-options.html">Understand machine lifecycle management options</a>
+</li>
+<li><a href="understand-ephemeral-storage-con_understand-ephemeral-storage.html">Understand ephemeral storage</a>
+</li>
+<li><a href="storage-ephemeral-storage-types_understand-different-types-of-ephemeral-storage.html">Types of ephemeral storage</a>
+</li>
+<li><a href="understand-hardware-accelerators-intro_understand-hardware-accelerators.html">Understand hardware accelerators</a>
+</li>
+</ul>
+</li>
+<li><a href="_deploy.html">Deploy</a>
+
+<ul class="sectlevel2">
+<li><a href="deploy-hosted-control-planes-intro_deploy-hosted-control-planes.html">Deploy hosted control planes</a>
+</li>
+<li><a href="distribute-hosted-cluster-workloads-con_distribute-hosted-cluster-workloads.html">Distribute hosted cluster workloads</a>
+</li>
+<li><a href="automate-edge-cluster-deployment-with-gitops-ztp-intro_automate-edge-cluster-deployment-with-gitops-ztp.html">Use GitOps ZTP to provision clusters at the network far edge</a>
+</li>
+<li><a href="images-imagestream-use_manage-image-streams-and-imports.html">Use image streams</a>
+</li>
+<li><a href="ocloud-manage-cluster-lifecycle-intro_ocloud-manage-cluster-lifecycle.html">Manage infrastructure and cluster lifecycle with the O-Cloud Manager</a>
+</li>
+</ul>
+</li>
+<li><a href="_install.html">Install</a>
+
+<ul class="sectlevel2">
+<li><a href="installation-overview_understand-openshift-installation-architecture.html">Red&#160;Hat OpenShift Container Platform installation options</a>
+</li>
+<li><a href="enable-fips-cryptography-for-installation-con_enable-fips-cryptography-for-installation.html">Enable FIPS cryptography for installation</a>
+</li>
+<li><a href="configure-firewall-rules-for-installation-intro_configure-firewall-rules-for-installation.html">Configure firewall rules for installation</a>
+</li>
+<li><a href="install-on-bare-metal-intro_install-on-bare-metal.html">Install on bare metal</a>
+</li>
+<li><a href="install-with-agent-based-installer-intro_install-with-agent-based-installer.html">Install with Agent-based Installer</a>
+</li>
+<li><a href="install-on-vsphere-intro_install-on-vsphere.html">Install on vSphere</a>
+</li>
+<li><a href="install-on-aws-intro_install-on-aws.html">Install on AWS</a>
+</li>
+<li><a href="install-on-azure-intro_install-on-azure.html">Install on Azure</a>
+</li>
+<li><a href="install-on-gcp-intro_install-on-gcp.html">Install on GCP</a>
+</li>
+<li><a href="install-on-nutanix-intro_install-on-nutanix.html">Install on Nutanix</a>
+</li>
+<li><a href="install-on-openstack-intro_install-on-openstack.html">Install on OpenStack</a>
+</li>
+<li><a href="install-on-ibm-cloud-intro_install-on-ibm-cloud.html">Install on IBM Cloud</a>
+</li>
+<li><a href="install-on-ibm-z-intro_install-on-ibm-z.html">Install on IBM Z and LinuxONE</a>
+</li>
+<li><a href="install-on-ibm-power-parent-intro_install-on-ibm-power-parent.html">Install on IBM Power and Power Virtual Server</a>
+</li>
+<li><a href="install-on-oracle-cloud-intro_install-on-oracle-cloud.html">Install on Oracle Cloud Infrastructure</a>
+</li>
+<li><a href="install-on-alibaba-cloud-intro_install-on-alibaba-cloud.html">Install on Alibaba Cloud</a>
+</li>
+<li><a href="install-on-any-platform-upi-intro_install-on-any-platform-upi.html">Install on any platform with user-provisioned infrastructure</a>
+</li>
+<li><a href="install-single-node-openshift-intro_install-single-node-openshift.html">Install single-node OpenShift</a>
+</li>
+<li><a href="install-a-two-node-cluster-with-fencing-intro_install-a-two-node-cluster-with-fencing.html">Install a two-node cluster with fencing</a>
+</li>
+<li><a href="install-a-cluster-with-multi-architecture-support-con_install-a-cluster-with-multi-architecture-support.html">Install a cluster with multi-architecture support</a>
+</li>
+<li><a href="rhcos-validate-live-media_validate-boot-artifacts.html">Validating RHCOS live media</a>
+</li>
+<li><a href="prepare-your-cluster-for-workloads-con_prepare-your-cluster-for-workloads.html">Prepare your cluster for workloads</a>
+</li>
+<li><a href="apply-a-layered-image-during-installation-con_apply-a-layered-image-during-installation.html">Add software or drivers not available as extensions in the base RHCOS image during cluster installation</a>
+</li>
+<li><a href="deploying-hosted-control-planes-on-aws-intro_deploying-hosted-control-planes-on-aws.html">Deploying hosted control planes on AWS</a>
+</li>
+<li><a href="hcp-deploy-azure-con_deploying-hosted-control-planes-on-azure.html">Deploying hosted control planes on Azure</a>
+</li>
+<li><a href="hcp-bm-overview_deploying-hosted-control-planes-on-bare-metal-with-the-agent-platform.html">About hosted control planes on bare metal with the Agent platform</a>
+</li>
+<li><a href="deploying-hosted-control-planes-on-openshift-virtualization-intro_deploying-hosted-control-planes-on-openshift-virtualization.html">Deploying hosted control planes on OpenShift Virtualization</a>
+</li>
+<li><a href="deploying-hosted-control-planes-on-non-bare-metal-agent-machines-intro_deploying-hosted-control-planes-on-non-bare-metal-agent-machines.html">Deploying hosted control planes on non-bare-metal agent machines</a>
+</li>
+<li><a href="install-sno-with-image-based-installation-intro_install-sno-with-image-based-installation.html">Install single-node OpenShift with image-based installation</a>
+</li>
+<li><a href="install-virtualized-control-plane-cluster-intro_install-virtualized-control-plane-cluster.html">Install a virtualized control plane cluster</a>
+</li>
+<li><a href="install-topology-aware-lifecycle-manager-intro_install-topology-aware-lifecycle-manager.html">Install the Topology Aware Lifecycle Manager</a>
+</li>
+</ul>
+</li>
+<li><a href="_disconnected_environments.html">Disconnected environments</a>
+
+<ul class="sectlevel2">
+<li><a href="understand-disconnected-environments-intro_understand-disconnected-environments.html">Disconnected environment concepts</a>
+</li>
+<li><a href="plan-a-disconnected-installation-intro_plan-a-disconnected-installation.html">Plan a disconnected installation</a>
+</li>
+<li><a href="installing-agent_install-a-cluster-in-a-disconnected-environment.html">Install a cluster with the Agent-based Installer</a>
+</li>
+<li><a href="create-mirror-registry-intro_create-a-mirror-registy-with-mirror-registy-for-red-hat-openshift.html">Create a mirror registry with mirror registry for Red Hat OpenShift</a>
+</li>
+<li><a href="installation-oc-mirror-v2-about_mirror-images-to-a-mirror-registry-using-oc-mirror-v2.html">oc-mirror plugin v2</a>
+</li>
+<li><a href="manage-olm-operators-disconnected-intro_manage-olm-operators-in-a-disconnected-environment.html">Manage OLM Operators in a disconnected environment</a>
+</li>
+<li><a href="mirror-images-for-a-cluster-update-in-a-disconnected-environment-intro_mirror-images-for-a-cluster-update-in-a-disconnected-environment.html">Mirror images for a cluster update in a disconnected environment</a>
+</li>
+<li><a href="update-service-overview_update-a-cluster-in-a-disconnected-environment-using-osus.html">Use the OpenShift Update Service in a disconnected environment</a>
+</li>
+<li><a href="update-disconnected_update-a-cluster-in-a-disconnected-environment-without-using-osus.html">Update the disconnected cluster</a>
+</li>
+<li><a href="about-disconnected-updates-uninstalling-osus_uninstall-osus-from-a-cluster.html">Uninstall the OpenShift Update Service from a cluster</a>
+</li>
+<li><a href="configure-trust-and-mirroring-con_configure-trust-and-mirroring.html">Configure trust and mirroring</a>
+</li>
+<li><a href="convert-connected-to-disconnected-intro_convert-a-connected-cluster-to-disconnected.html">Convert a connected cluster to disconnected</a>
+</li>
+<li><a href="deploying-hosted-control-planes-in-a-disconnected-environment-intro_deploying-hosted-control-planes-in-a-disconnected-environment.html">Deploying hosted control planes in a disconnected environment</a>
+</li>
+</ul>
+</li>
+<li><a href="_upgrade.html">Upgrade</a>
+
+<ul class="sectlevel2">
+<li><a href="understanding-openshift-updates_understanding-openshift-updates.html">Introduction to OpenShift updates</a>
+</li>
+<li><a href="how-updates-work_how-updates-work.html">How cluster updates work</a>
+</li>
+<li><a href="understand-update-channels-and-releases-intro_understanding-update-channels-releases.html">Understand update channels and releases</a>
+</li>
+<li><a href="understand-update-duration-intro_openshift-update-duration.html">Understand update duration</a>
+</li>
+<li><a href="updating-cluster-prepare_updating-cluster-prepare.html">Preparing to update to Red&#160;Hat OpenShift Container Platform {product-version}</a>
+</li>
+<li><a href="preparing-manual-creds-update_preparing-manual-creds-update.html">Prepare to update a cluster with manually maintained credentials</a>
+</li>
+<li><a href="updating-cluster-web-console_updating-cluster-web-console.html">Update a cluster using the web console</a>
+</li>
+<li><a href="updating-cluster-cli_updating-cluster-cli.html">Update a cluster using the CLI</a>
+</li>
+<li><a href="perform-a-control-plane-only-update-intro_control-plane-only-update.html">Perform a Control Plane Only update</a>
+</li>
+<li><a href="update-ai-plugin-intro_updating-ai.html">Create cluster update assessments with OpenShift Lightspeed</a>
+</li>
+<li><a href="update-using-custom-machine-config-pools_update-using-custom-machine-config-pools.html">Perform a canary rollout update</a>
+</li>
+<li><a href="update-a-cluster-in-a-disconnected-environment-intro_update-a-cluster-in-a-disconnected-environment.html">Update a cluster in a disconnected environment</a>
+</li>
+<li><a href="migrate-to-a-multi-architecture-cluster-intro_migrate-to-a-multi-architecture-cluster.html">Migrate to a cluster with multi-architecture compute machines</a>
+</li>
+<li><a href="update-from-4-x-to-5-x-intro_updating-ocp-5.html">Update a cluster to Red&#160;Hat OpenShift Container Platform 5.0</a>
+</li>
+<li><a href="mco-image-streams_mco-image-streams.html">Updating the cluster to RHCOS 10.x</a>
+</li>
+<li><a href="update-hardware-on-vsphere-nodes-con_update-hardware-on-vsphere-nodes.html">Update hardware on vSphere nodes</a>
+</li>
+<li><a href="update-the-boot-loader-on-rhcos-nodes-con_update-the-boot-loader-on-rhcos-nodes.html">Update the boot loader on RHCOS nodes</a>
+</li>
+<li><a href="upgrade-hosted-control-planes-intro_upgrade-hosted-control-planes.html">Upgrade Hosted Control Planes</a>
+</li>
+<li><a href="gathering-data-cluster-update_gather-data-about-a-cluster-update.html">Gathering data about your cluster update</a>
+</li>
+<li><a href="upgrade-sno-with-image-based-upgrade-intro_upgrade-sno-with-image-based-upgrade.html">Upgrade single-node OpenShift with image-based upgrade</a>
+</li>
+<li><a href="upgrade-managed-clusters-with-talm-intro_upgrade-managed-clusters-with-talm.html">Upgrade managed clusters with the Topology Aware Lifecycle Manager</a>
+</li>
+<li><a href="update-telco-cnf-clusters-intro_update-telco-cnf-clusters.html">Update telco CNF clusters</a>
+</li>
+</ul>
+</li>
+<li><a href="_migrate.html">Migrate</a>
+</li>
+<li><a href="_administer.html">Administer</a>
+
+<ul class="sectlevel2">
+<li><a href="about-project-creation_configure-project-creation.html">About project creation</a>
+</li>
+<li><a href="impersonation-project-creation_create-project-as-another-user.html">Impersonating a user when you create a project</a>
+</li>
+<li><a href="pruning-groups_prune-cluster-objects.html">Pruning groups</a>
+</li>
+<li><a href="configure-default-pod-behavior-con_configure-default-pod-behavior.html">Configure default pod behavior</a>
+</li>
+<li><a href="allocate-gpu-resources-to-pods-con_allocate-gpu-resources-to-pods.html">Allocate GPU resources to pods</a>
+</li>
+<li><a href="allocate-gpus-to-pods-with-a-dra-driver-con_allocate-gpus-to-pods-with-a-dra-driver.html">Allocate GPUs to pods with a DRA driver</a>
+</li>
+<li><a href="nodes-cluster-resource-configure_allocate-resources-for-nodes.html">Configure cluster-level overcommit</a>
+</li>
+<li><a href="allow-containers-to-consume-api-objects-con_allow-containers-to-consume-api-objects.html">Allow containers to consume API objects</a>
+</li>
+<li><a href="core-user-password_change-the-core-user-password-for-node-access.html">Change the core user password for node access</a>
+</li>
+<li><a href="spread-the-control-plane-across-failure-domains-con_spread-the-control-plane-across-failure-domains.html">Spread the control plane across failure domains</a>
+</li>
+<li><a href="multi-architecture-configuring-your-cluster_configure-multi-architecture-node-workload-deployments.html">Configuring your cluster with multi-architecture compute machines</a>
+</li>
+<li><a href="mco-update-boot-images_configure-my-cluster-to-automatically-update-the-boot-image-on-my-nodes.html">About boot image management</a>
+</li>
+<li><a href="update-the-boot-image-manually-con_update-the-boot-image-manually.html">Update the boot image manually</a>
+</li>
+<li><a href="core-user-password_configure-the-core-user-password-for-node-access.html">Change the core user password for node access</a>
+</li>
+<li><a href="machine-health-checks-creating_create-a-machine-health-check-resource.html">Creating a machine health check resource</a>
+</li>
+<li><a href="create-remote-worker-nodes-con_create-remote-worker-nodes.html">Create remote worker nodes</a>
+</li>
+<li><a href="machine-config-node-disruption-config_define-disruptive-machine-configuration-changes.html">Configure node restart behaviors upon machine config changes</a>
+</li>
+<li><a href="delete-a-hosted-cluster-con_delete-a-hosted-cluster.html">Delete a hosted cluster</a>
+</li>
+<li><a href="machineset-manually-scaling_delete-nodes-from-a-cluster.html">Scale a compute machine set manually</a>
+</li>
+<li><a href="machine-health-checks-about_deploy-machine-health-checks.html">About machine health checks</a>
+</li>
+<li><a href="nodes-cluster-enabling-features-about_enable-features-with-feature-gates.html">Understanding feature gates</a>
+</li>
+<li><a href="enable-or-disable-the-hosted-control-planes-feature-con_enable-or-disable-the-hosted-control-planes-feature.html">Enable or disable the hosted control planes feature</a>
+</li>
+<li><a href="multi-architecture-import-imagestreams_import-manifest-lists-in-image-streams.html">Import manifest lists in image streams on your multi-architecture compute machines</a>
+</li>
+<li><a href="manage-bare-metal-host-lifecycle-manage-hosts-and-monitor-hardware-events-con_manage-bare-metal-host-lifecycle-manage-hosts-and-monitor-hardware-events.html">Manage hosts and monitor hardware events</a>
+</li>
+<li><a href="mgmt-power-remediation-baremetal-about_manage-bare-metal-host-lifecycle.html">About power-based remediation of bare metal</a>
+</li>
+<li><a href="manage-kernel-modules-across-cluster-nodes-manage-day-1-kmod-images-lifecycle-con_manage-kernel-modules-across-cluster-nodes-manage-day-1-kmod-images-lifecycle.html">Manage Day 1 kmod images lifecycle</a>
+</li>
+<li><a href="kmm-unloading-kernel-module_manage-kernel-modules-across-cluster-nodes-unload-kernel-modules-from-nodes.html">Unloading the kernel module</a>
+</li>
+<li><a href="kmm-hub-hub-and-spoke_manage-kernel-modules-across-cluster-nodes-use-kmm-in-hub-and-spoke-multi-cluster.html">KMM hub and spoke</a>
+</li>
+<li><a href="manage-multiple-telco-clusters-with-rhacm-con_manage-multiple-telco-clusters-with-rhacm.html">Manage multiple telco clusters with RHACM</a>
+</li>
+<li><a href="manage-the-configuration-and-lifecycle-of-control-plane-machines-con_manage-the-configuration-and-lifecycle-of-control-plane-machines.html">Manage the configuration and lifecycle of control plane machines</a>
+</li>
+<li><a href="nodes-control-plane-osp-migrating_migrate-control-plane-nodes-between-rhosp-hosts.html">Migrating control plane nodes from one RHOSP host to another manually</a>
+</li>
+<li><a href="manage-the-configuration-and-lifecycle-of-compute-machines-con_manage-the-configuration-and-lifecycle-of-compute-machines.html">Manage the configuration and lifecycle of compute machines</a>
+</li>
+<li><a href="identify-and-group-compute-machines-con_identify-and-group-compute-machines.html">Identify and group compute machines</a>
+</li>
+<li><a href="identify-and-group-control-plane-machines-con_identify-and-group-control-plane-machines.html">Identify and group control plane machines</a>
+</li>
+<li><a href="multi-architecture-scheduling_manage-workloads-on-multi-architecture-clusters.html">Scheduled workloads on clusters with multi-architecture compute machines</a>
+</li>
+<li><a href="hcp-import-intro_manually-import-a-hosted-cluster.html">Manually importing a hosted cluster</a>
+</li>
+<li><a href="nodes-pods-image-volume-about_mount-an-oci-image-onto-a-pod.html">Understanding image volumes</a>
+</li>
+<li><a href="persistent-storage-overview_mount-persistant-storage-volumes-to-pods-and-containers.html">Persistent storage overview</a>
+</li>
+<li><a href="nodes-containers-init-about_perform-lightweight-tasks-with-init-containers.html">Understanding init containers</a>
+</li>
+<li><a href="prepare-your-cluster-for-day-2-support-con_prepare-your-cluster-for-day-2-support.html">Prepare your cluster for Day-2 support</a>
+</li>
+<li><a href="mco-update-boot-images-disable_prevent-my-cluster-from-automatically-updating-the-boot-image-on-my-nodes.html">Disable boot image management</a>
+</li>
+<li><a href="machine-config-pin-preload-images_reduce-image-pull-time-for-cluster-operations.html">Pin images</a>
+</li>
+<li><a href="machineconfig-garbage-collect-removing_remove-no-longer-used-machine-config-objects.html">Remove unused rendered machine configs</a>
+</li>
+<li><a href="machine-health-checks-resource_review-sample-machinehealthcheck-resource.html">About the MachineHealthCheck custom resource</a>
+</li>
+<li><a href="nodes-pods-daemonsets-about_run-background-tasks-on-a-node-with-daemonsets.html">Daemon set scheduling</a>
+</li>
+<li><a href="nodes-nodes-jobs-about_run-tasks-in-pods.html">Understanding jobs and cron jobs</a>
+</li>
+<li><a href="machineset-manually-scaling_scale-a-compute-machine-set.html">Scale a compute machine set manually</a>
+</li>
+<li><a href="scale-machines-that-use-static-ip-addresses-con_scale-machines-that-use-static-ip-addresses.html">Scale machines that use static IP addresses</a>
+</li>
+<li><a href="reboot-a-node-without-disrupting-workloads-con_reboot-a-node-without-disrupting-workloads.html">Reboot a node without disrupting workloads</a>
+</li>
+<li><a href="scale-etcd-control-plane-nodes-con_scale-etcd-control-plane-nodes.html">Scale etcd control plane nodes</a>
+</li>
+<li><a href="scale-workloads-in-a-hosted-cluster-con_scale-workloads-in-a-hosted-cluster.html">Scale workloads in a hosted cluster</a>
+</li>
+<li><a href="hcp-manage-bm-con_manage-hosted-clusters-on-bare-metal.html">Manage hosted control planes on bare metal</a>
+</li>
+<li><a href="hcp-manage-virt-con_manage-hosted-clusters-on-openshift-virtualization.html">Manage hosted control planes on OpenShift Virtualization</a>
+</li>
+<li><a href="hcp-manage-aws-con_manage-hosted-clusters-on-aws.html">Manage hosted control planes on AWS</a>
+</li>
+<li><a href="hcp-manage-ibm-power-con_manage-hosted-clusters-on-ibm-power.html">Manage hosted control planes on IBM Power</a>
+</li>
+<li><a href="hcp-manage-non-bm-con_manage-hosted-clusters-on-non-bare-metal.html">Manage hosted control planes on non-bare-metal agent machines</a>
+</li>
+<li><a href="hcp-manage-openstack-con_manage-hosted-clusters-on-openstack.html">Manage hosted control planes on RHOSP</a>
+</li>
+<li><a href="multi-architecture-installing-using-cli_schedule-workloads-on-multi-architecture-clusters.html">Installing the Multiarch Tuning Operator by using the CLI</a>
+</li>
+<li><a href="machine-health-checks-about_understand-machine-health-check-behavior.html">About machine health checks</a>
+</li>
+<li><a href="understand-the-machine-lifecycle-con_understand-the-machine-lifecycle.html">Understand the machine lifecycle</a>
+</li>
+<li><a href="understand-the-out-of-cluster-mode-of-the-image-mode-for-openshift-feature-con_understand-the-out-of-cluster-mode-of-the-image-mode-for-openshift-feature.html">Understand the out-of-cluster mode of the Image Mode for OpenShift feature</a>
+</li>
+<li><a href="removing-web-terminal-operator_uninstall-the-web-terminal-operator.html">Removing the Web Terminal Operator</a>
+</li>
+<li><a href="nodes-pods-plugins-about_use-device-plugins-to-access-external-resources-with-pods.html">Understand device plugins</a>
+</li>
+<li><a href="coreos-layering-configuring-on_use-software-and-drivers-not-available-as-rhcos-extensions.html">About on-cluster image mode</a>
+</li>
+<li><a href="odc-access-web-terminal_use-the-embedded-web-terminal.html">Accessing the web terminal</a>
+</li>
+<li><a href="view-and-interact-with-machine-config-operator-certificates-con_view-and-interact-with-machine-config-operator-certificates.html">View and interact with Machine Config Operator certificates</a>
+</li>
+<li><a href="machineconfig-garbage-collect-viewing_view-no-longer-used-machine-config-objects.html">View rendered machine configs</a>
+</li>
+<li><a href="understand-image-cr-parameters-con_understand-image-cr-parameters.html">Understand Image CR parameters</a>
+</li>
+<li><a href="configure-registry-allowlists-and-blocks-con_configure-registry-allowlists-and-blocks.html">Configure registry allowlists and blocks</a>
+</li>
+<li><a href="images-configuration-shortname-con_configure-short-name-search-registries.html">Configure short-name search registries</a>
+</li>
+<li><a href="configure-trust-and-mirroring-con_configure-trust-and-mirroring.html">Configure trust and mirroring</a>
+</li>
+<li><a href="images-configuration-mco-and-registry-changes_understand-mco-rollout-behavior.html">Machine Config Operator behavior and registry changes</a>
+</li>
+<li><a href="configure-topology-aware-lifecycle-manager-intro_configure-topology-aware-lifecycle-manager.html">Configure the Topology Aware Lifecycle Manager</a>
+</li>
+<li><a href="configure-rhacm-for-telco-deployments-con_configure-rhacm-for-telco-deployments.html">Configure Red&#160;Hat Advanced Cluster Management (RHACM) for telco deployments</a>
+</li>
+<li><a href="oadp-intro_protect-application-data-with-oadp.html">Protect application data with OADP</a>
+</li>
+<li><a href="expand-a-bare-metal-cluster-intro_expand-a-bare-metal-cluster.html">Expand a bare metal cluster</a>
+</li>
+<li><a href="scale-a-upi-cluster-with-the-bare-metal-operator-intro_scale-a-upi-cluster-with-the-bare-metal-operator.html">Scale a user-provisioned infrastructure cluster with the Bare Metal Operator</a>
+</li>
+<li><a href="add-compute-machines-to-a-bare-metal-cluster-intro_add-compute-machines-to-a-bare-metal-cluster.html">Add compute machines to a bare metal cluster</a>
+</li>
+<li><a href="add-a-worker-node-with-custom-var-partition-in-aws-intro_add-a-worker-node-with-custom-var-partition-in-aws.html">Add a worker node with custom /var partition in AWS</a>
+</li>
+<li><a href="backup-and-restore-etcd-data-con_backup-and-restore-etcd-data.html">Back up and restore etcd data</a>
+</li>
+<li><a href="disaster-recovery-for-control-planes-intro_control-plane-disaster-recovery.html">Control plane disaster recovery</a>
+</li>
+<li><a href="recover-a-two-node-cluster-with-fencing-con_recover-a-two-node-cluster-with-fencing.html">Recover a two-node cluster with fencing</a>
+</li>
+<li><a href="replace-healthy-etcd-member-intro_replace-healthy-etcd-member.html">Replace a healthy etcd member</a>
+</li>
+<li><a href="replace-unhealthy-etcd-member-intro_replace-unhealthy-etcd-members.html">Replace an unhealthy etcd member</a>
+</li>
+<li><a href="graceful-restart-cluster-intro_graceful-cluster-restart.html">Restart the cluster gracefully</a>
+</li>
+<li><a href="graceful-shutdown-cluster-intro_graceful-cluster-shutdown.html">Shut down the cluster gracefully</a>
+</li>
+<li><a href="hibernating-cluster-intro_hibernating-cluster.html">Hibernate a cluster</a>
+</li>
+<li><a href="add-worker-nodes-to-sno-clusters-intro_add-worker-nodes-to-sno-clusters.html">Add worker nodes to single-node OpenShift clusters</a>
+</li>
+</ul>
+</li>
+<li><a href="_develop.html">Develop</a>
+
+<ul class="sectlevel2">
+<li><a href="applications-projects-overview_work-with-projects.html">Working on a project</a>
+</li>
+<li><a href="applications-create-using-cli-source-code_create-applications-from-the-cli.html">Creating an application from source code</a>
+</li>
+<li><a href="odc-deploying-java-applications_create-applications-from-the-developer-perspective.html">Deploying a Java application by uploading a JAR file</a>
+</li>
+<li><a href="applications-application-lifecycle_understand-deployments.html">Working on an application</a>
+</li>
+<li><a href="deployments-rolling-strategy_configure-deployment-strategies.html">Rolling strategy</a>
+</li>
+<li><a href="deployments-starting-a-deployment_manage-deployment-processes.html">Starting a deployment</a>
+</li>
+<li><a href="deployments-proxy-shard_use-route-based-deployment-strategies.html">Proxy shards and traffic splitting</a>
+</li>
+<li><a href="idle-idling-applications_idle-applications-to-save-resources.html">Application idling</a>
+</li>
+<li><a href="add-nodes-to-an-on-premise-cluster-con_add-nodes-to-an-on-premise-cluster.html">Add nodes to an on-premise cluster</a>
+</li>
+<li><a href="deploy-applications-with-red-hat-s2i-images-61-find-supported-red-hat-container-images-con_deploy-applications-with-red-hat-s2i-images-61-find-supported-red-hat-container-images.html">Find supported Red Hat container images</a>
+</li>
+<li><a href="deploy-applications-with-red-hat-s2i-images-con_deploy-applications-with-red-hat-s2i-images.html">Deploy applications with Red Hat S2I images</a>
+</li>
+<li><a href="create-container-images-for-openshift-con_create-container-images-for-openshift.html">Create container images for OpenShift</a>
+</li>
+<li><a href="build-s2i-builder-images-con_build-s2i-builder-images.html">Build S2I builder images</a>
+</li>
+<li><a href="reclaim-registry-storage-con_reclaim-registry-storage.html">Reclaim registry storage</a>
+</li>
+<li><a href="deploy-images-from-external-sources-con_deploy-images-from-external-sources.html">Deploy images from external sources</a>
+</li>
+<li><a href="templates-overview_use-templates-to-deploy-applications.html">Understanding templates</a>
+</li>
+<li><a href="templates-writing_write-and-manage-templates.html">Writing templates</a>
+</li>
+<li><a href="templates-rails-setting-up-database_deploy-a-rails-application-with-templates.html">Setting up the database</a>
+</li>
+<li><a href="use-developer-workflows-in-the-console-con_use-developer-workflows-in-the-console.html">Use developer workflows in the console</a>
+</li>
+<li><a href="developing-containerized-applications_review-platform-extensibility-and-development-workflows.html">Containerized application development</a>
+</li>
+<li><a href="follow-plugin-development-guidelines-con_follow-plugin-development-guidelines.html">Follow plugin development guidelines</a>
+</li>
+<li><a href="consume-ptp-fast-event-notifications-intro_consume-ptp-fast-event-notifications.html">Consume PTP fast event notifications</a>
+</li>
+</ul>
+</li>
+<li><a href="_configure.html">Configure</a>
+
+<ul class="sectlevel2">
+<li><a href="configuring-alert-notifications-intro_configuring-alert-notifications.html">Configuring alert notifications</a>
+</li>
+<li><a href="post-install-cluster-tasks-intro_post-install-cluster-tasks.html">Postinstallation cluster tasks</a>
+</li>
+<li><a href="preparing-for-users-intro_post-install-preparing-for-users.html">Preparing for users</a>
+</li>
+<li><a href="change-the-installed-disk-partition-schema-for-new-nodes-con_change-the-installed-disk-partition-schema-for-new-nodes.html">Change the installed disk-partition schema for new nodes</a>
+</li>
+<li><a href="configure-and-maintain-the-pod-network-cni-213-ensure-every-pod-gets-a-unique-ip-in-a-flat-network-con_configure-and-maintain-the-pod-network-cni-213-ensure-every-pod-gets-a-unique-ip-in-a-flat-network.html">Ensure every pod gets a unique IP in a flat network</a>
+</li>
+<li><a href="configure-multi-tenant-namespace-isolation-con_configure-multi-tenant-namespace-isolation.html">Configure multi-tenant namespace isolation</a>
+</li>
+<li><a href="define-how-much-disk-space-a-single-container-on-my-nodes-can-use-for-its-files-and-layers-con_define-how-much-disk-space-a-single-container-on-my-nodes-can-use-for-its-files-and-layers.html">Define how much disk space a single container can use</a>
+</li>
+<li><a href="define-the-maximum-size-of-the-container-log-file-before-it-is-rotated-con_define-the-maximum-size-of-the-container-log-file-before-it-is-rotated.html">Define the maximum size of the container log file before it is rotated</a>
+</li>
+<li><a href="limit-the-number-of-process-ids-pids-that-a-pod-can-use-on-my-nodes-to-prevent-pid-exhaustion-con_limit-the-number-of-process-ids-pids-that-a-pod-can-use-on-my-nodes-to-prevent-pid-exhaustion.html">Limit the number of process IDs that a pod can use</a>
+</li>
+<li><a href="switch-the-container-runtime-used-for-workloads-on-my-nodes-between-runc-and-crun-con_switch-the-container-runtime-used-for-workloads-on-my-nodes-between-runc-and-crun.html">Switch the container runtime between runC and crun</a>
+</li>
+<li><a href="about-machine-config-operator_when-to-use-machine-configs-for-node-changes.html">About the Machine Config Operator</a>
+</li>
+<li><a href="mco-update-boot-images_understand-how-openshift-manages-boot-images-on-my-nodes.html">About boot image management</a>
+</li>
+<li><a href="installation-special-config-butane_change-the-configuration-files-on-my-nodes.html">Create machine configs with Butane</a>
+</li>
+<li><a href="architecture-machine-config-pools_how-to-use-machine-config-pools-for-node-changes.html">Node configuration management with machine config pools</a>
+</li>
+<li><a href="delete-containerruntimeconfig-objects-from-my-cluster-con_delete-containerruntimeconfig-objects-from-my-cluster.html">Delete <code>ContainerRuntimeConfig</code> objects from your cluster</a>
+</li>
+<li><a href="machine-config-node-drain_understand-node-disruption-behavior.html">Understanding the Machine Config Operator node drain behavior</a>
+</li>
+<li><a href="configure-my-nodes-by-using-machine-config-objects-con_configure-my-nodes-by-using-machine-config-objects.html">Configure my nodes by using machine config objects</a>
+</li>
+<li><a href="create-consistent-configurations-con_create-consistent-configurations.html">Create consistent configurations</a>
+</li>
+<li><a href="understand-how-to-manage-no-longer-used-machine-config-objects-con_understand-how-to-manage-no-longer-used-machine-config-objects.html">Understand how to manage no-longer used machine config objects</a>
+</li>
+<li><a href="installation-special-config-butane_customize-installation-configuration.html">Create machine configs with Butane</a>
+</li>
+<li><a href="change-the-installed-file-system-configuration-for-new-nodes-con_change-the-installed-file-system-configuration-for-new-nodes.html">Change the installed file system configuration for new nodes</a>
+</li>
+<li><a href="change-the-installed-raid-configuration-for-new-nodes-con_change-the-installed-raid-configuration-for-new-nodes.html">Change the installed RAID configuration for new nodes</a>
+</li>
+<li><a href="add-non-default-software-packages-with-linux-extensions-con_add-non-default-software-packages-with-linux-extensions.html">Add non-default software packages with Linux extensions</a>
+</li>
+<li><a href="modify-systemd-settings-on-my-nodes-con_modify-systemd-settings-on-my-nodes.html">Modify systemd settings on my nodes</a>
+</li>
+<li><a href="nodes-nodes-working-setting-booleans_set-selinux-booleans-on-nodes.html">Setting SELinux booleans</a>
+</li>
+<li><a href="make-changes-to-the-cri-o-settings-on-my-nodes-con_make-changes-to-the-cri-o-settings-on-my-nodes.html">Make changes to the CRI-O settings on my nodes</a>
+</li>
+<li><a href="tune-kernel-behaviors-on-my-nodes-by-adding-kernel-arguments-con_tune-kernel-behaviors-on-my-nodes-by-adding-kernel-arguments.html">Tune kernel behaviors on my nodes by adding kernel arguments</a>
+</li>
+<li><a href="create-crio-default-capabilities_remove-the-net-raw-and-sys-chroot-cri-o-capabilities.html">Creating a drop-in file for the default CRI-O capabilities</a>
+</li>
+<li><a href="change-kernel-type-in-a-nodepool-con_change-kernel-type-in-a-nodepool.html">Change the kernel type in a node pool</a>
+</li>
+<li><a href="use-feature-gates-in-a-hosted-cluster-con_use-feature-gates-in-a-hosted-cluster.html">Use feature gates in a hosted cluster</a>
+</li>
+<li><a href="hcp-networking-overview_networks-for-hosted-control-planes.html">Networking overview for hosted control planes</a>
+</li>
+<li><a href="override-resource-util-hosted-cluster-con_override-resource-util-hosted-cluster.html">Overriding resource utilization measurements</a>
+</li>
+<li><a href="about-driver-toolkit_build-driver-containers-for-specialized-hardware.html">About the Driver Toolkit</a>
+</li>
+<li><a href="discover-and-label-hardware-features-on-nodes-con_discover-and-label-hardware-features-on-nodes.html">Discover and label hardware features on nodes</a>
+</li>
+<li><a href="nfd-rules-about_create-custom-node-labeling-rules-with-nodefeaturerule.html">About the NodeFeatureRule custom resource</a>
+</li>
+<li><a href="create-nodefeaturediscovery-custom-resource-con_create-nodefeaturediscovery-custom-resource.html">Create a NodeFeatureDiscovery custom resource</a>
+</li>
+<li><a href="configure-nfd-feature-sources-and-detection-con_configure-nfd-feature-sources-and-detection.html">Configure NFD feature sources and detection</a>
+</li>
+<li><a href="about-kmm_manage-kernel-modules-across-cluster-nodes.html">About the Kernel Module Management Operator</a>
+</li>
+<li><a href="manage-kernel-modules-across-cluster-nodes-load-kernel-modules-at-day-1-with-machine-config-con_manage-kernel-modules-across-cluster-nodes-load-kernel-modules-at-day-1-with-machine-config.html">Load kernel modules at Day 1 with Machine Config</a>
+</li>
+<li><a href="installation-oc-mirror-v2-about_mirror-container-images-to-a-local-registry.html">oc-mirror plugin v2</a>
+</li>
+<li><a href="organize-image-versions-with-tags-con_organize-image-versions-with-tags.html">Organize image versions with tags</a>
+</li>
+<li><a href="images-image-pull-policy-overview_control-container-image-pull-behavior.html">About the imagePullPolicy parameter</a>
+</li>
+<li><a href="coreos-layering-configuring-on_apply-an-on-cluster-layered-image.html">About on-cluster image mode</a>
+</li>
+<li><a href="modify-an-on-cluster-layered-image-con_modify-an-on-cluster-layered-image.html">Modify the object needed to use the on-cluster mode of image mode for OpenShift</a>
+</li>
+<li><a href="rebuild-an-on-cluster-layered-image-con_rebuild-an-on-cluster-layered-image.html">Force a rebuild of the object used with the on-cluster mode of image mode for OpenShift</a>
+</li>
+<li><a href="revert-an-on-cluster-layered-image-con_revert-an-on-cluster-layered-image.html">Revert any changes I made by using the on-cluster mode of image mode for OpenShift</a>
+</li>
+<li><a href="coreos-layering-configuring-on-remove_remove-an-on-cluster-layered-image.html">Removal of an on-cluster custom layered image</a>
+</li>
+<li><a href="revert-an-out-of-cluster-layered-image-con_revert-an-out-of-cluster-layered-image.html">Revert any changes I made by using the out-of-cluster mode of image mode for OpenShift</a>
+</li>
+<li><a href="update-the-control-plane-machine-set-con_update-the-control-plane-machine-set.html">Change the configuration of control plane machines by updating the control plane machine set</a>
+</li>
+<li><a href="change-the-control-plane-instance-type-con_change-the-control-plane-instance-type.html">Change the control plane instance type</a>
+</li>
+<li><a href="cpmso-feat-auto-update_apply-configuration-changes-to-control-plane-machines-with-automation.html">Automatic updates to the control plane configuration</a>
+</li>
+<li><a href="change-the-configuration-of-compute-machines-by-updating-compute-machine-resources-con_change-the-configuration-of-compute-machines-by-updating-compute-machine-resources.html">Change the configuration of compute machines by updating compute machine resources</a>
+</li>
+<li><a href="enable-automated-machine-management-on-user-provisioned-infrastructure-con_enable-automated-machine-management-on-user-provisioned-infrastructure.html">Enable automated machine management on user-provisioned infrastructure</a>
+</li>
+<li><a href="apply-configuration-changes-to-compute-machines-with-automation-con_apply-configuration-changes-to-compute-machines-with-automation.html">Apply configuration changes to compute machines with automation</a>
+</li>
+<li><a href="change-the-authoritative-api-for-machine-management-resources-con_change-the-authoritative-api-for-machine-management-resources.html">Change the authoritative API for machine management resources</a>
+</li>
+<li><a href="coreos-layering-updating_understand-how-to-update-a-cluster-that-uses-the-image-mode-for-openshift.html">Update with a RHCOS custom layered image</a>
+</li>
+<li><a href="post-install-configuration-overview-intro_post-installation-configuration-overview.html">Postinstallation configuration overview</a>
+</li>
+<li><a href="manage-workloads-using-taints-and-tolerations-con_manage-workloads-using-taints-and-tolerations.html">Manage workloads using taints and tolerations</a>
+</li>
+<li><a href="nodes-nodes-working-master-schedulable_schedule-pods-on-control-plane-nodes.html">Configuring control plane nodes as schedulable</a>
+</li>
+<li><a href="postinstallation-storage-configuration-intro_post-install-storage-configuration.html">Postinstallation storage configuration</a>
+</li>
+<li><a href="multi-architecture-configuring-your-cluster_create-multi-architecture-compute-clusters.html">Configuring your cluster with multi-architecture compute machines</a>
+</li>
+<li><a href="create-arm64-boot-image-using-azure-image-gallery-con_create-arm64-boot-image-using-azure-image-gallery.html">Create a 64-bit ARM boot image by using the Azure Compute Gallery</a>
+</li>
+<li><a href="add-multi-architecture-compute-machine-set-to-azure-cluster-con_add-multi-architecture-compute-machine-set-to-azure-cluster.html">Add a multi-architecture compute machine set to an Azure cluster</a>
+</li>
+<li><a href="add-multi-architecture-compute-machine-set-to-aws-cluster-con_add-multi-architecture-compute-machine-set-to-aws-cluster.html">Add a multi-architecture compute machine set to an AWS cluster</a>
+</li>
+<li><a href="create-multi-architecture-compute-clusters-on-google-cloud-con_create-multi-architecture-compute-clusters-on-google-cloud.html">Create multi-architecture compute clusters on Google Cloud</a>
+</li>
+<li><a href="create-multi-architecture-compute-clusters-on-bare-metal-ibm-power-or-ibm-z-con_create-multi-architecture-compute-clusters-on-bare-metal-ibm-power-or-ibm-z.html">Create multi-architecture compute clusters on bare metal, IBM Power, or IBM Z</a>
+</li>
+<li><a href="creating-multi-arch-compute-nodes-ibm-z-intro_creating-multi-arch-compute-nodes-ibm-z.html">Create a cluster with multi-architecture compute machines on IBM Z and IBM LinuxONE with z/VM</a>
+</li>
+<li><a href="creating-multi-arch-compute-nodes-ibm-z-lpar-intro_creating-multi-arch-compute-nodes-ibm-z-lpar.html">Create a cluster with multi-architecture compute machines on IBM Z and IBM LinuxONE in an LPAR</a>
+</li>
+<li><a href="creating-multi-arch-compute-nodes-ibm-z-kvm-intro_creating-multi-arch-compute-nodes-ibm-z-kvm.html">Create a cluster with multi-architecture compute machines on IBM Z and IBM LinuxONE with RHEL KVM</a>
+</li>
+<li><a href="creating-multi-arch-compute-nodes-ibm-z-kvm-intro_creating-multi-arch-compute-nodes-ibm-power.html">Create a cluster with multi-architecture compute machines on IBM Power</a>
+</li>
+<li><a href="enable-64k-pages-on-rhcos-kernel-con_enable-64k-pages-on-rhcos-kernel.html">Enable 64k pages on the RHCOS kernel</a>
+</li>
+<li><a href="multi-architecture-gather-info-about-workloads_configure-the-multiarch-tuning-operator.html">Multiarch Tuning Operator pod labels and architecture support overview</a>
+</li>
+<li><a href="install-multiarch-tuning-operator-via-cli-con_install-multiarch-tuning-operator-via-cli.html">Install the Multiarch Tuning Operator by using the CLI</a>
+</li>
+<li><a href="install-multiarch-tuning-operator-via-web-console-con_install-multiarch-tuning-operator-via-web-console.html">Install the Multiarch Tuning Operator by using the web console</a>
+</li>
+<li><a href="uninstall-multiarch-tuning-operator-intro_multiarch-tuning-operator.html">Uninstalling the Multiarch Tuning Operator</a>
+</li>
+<li><a href="create-kubeletconfig-cr-to-edit-kubelet-parameters-con_create-kubeletconfig-cr-to-edit-kubelet-parameters.html">Create a KubeletConfig CR to edit kubelet parameters</a>
+</li>
+<li><a href="delete-kubeletconfig-objects-from-my-cluster-con_delete-kubeletconfig-objects-from-my-cluster.html">Delete <code>KubeletConfig</code> objects from your cluster</a>
+</li>
+<li><a href="modify-number-of-unavailable-worker-nodes-con_modify-number-of-unavailable-worker-nodes.html">Modify the number of unavailable worker nodes</a>
+</li>
+<li><a href="manage-cluster-overcommitment-con_manage-cluster-overcommitment.html">Manage cluster overcommitment</a>
+</li>
+<li><a href="registry-removed_configure-the-image-registry-operator.html">Image registry removed during installation</a>
+</li>
+<li><a href="registry-removed_configure-the-image-registry-after-installation.html">Image registry removed during installation</a>
+</li>
+<li><a href="configure-registry-storage-by-platform-con_configure-registry-storage-by-platform.html">Configure registry storage by platform</a>
+</li>
+<li><a href="configuring-image-streams-and-registries-intro_post-install-image-config.html">Configuring image streams and image registries</a>
+</li>
+<li><a href="odc-customizing-user-perspectives_enable-the-developer-perspective.html">Customize user perspectives</a>
+</li>
+<li><a href="set-user-preferences-con_set-user-preferences.html">Set user preferences</a>
+</li>
+<li><a href="configure-theme-and-language-preferences-con_configure-theme-and-language-preferences.html">Configure theme and language preferences</a>
+</li>
+<li><a href="configure-the-web-console-con_configure-the-web-console.html">Configure the web console</a>
+</li>
+<li><a href="configure-web-terminal-timeout-and-image-settings-con_configure-web-terminal-timeout-and-image-settings.html">Configure web terminal timeout and image settings</a>
+</li>
+<li><a href="disable-the-web-console-con_disable-the-web-console.html">Disable the web console</a>
+</li>
+<li><a href="configure-nvidia-gpu-accelerators-intro_configure-nvidia-gpu-accelerators.html">Configure NVIDIA GPU accelerators</a>
+</li>
+<li><a href="configure-rdma-for-gpu-workloads-intro_configure-rdma-for-gpu-workloads.html">Configure RDMA for GPU workloads</a>
+</li>
+<li><a href="about-machine-config-operator_configure-node-changes-on-a-cluster.html">About the Machine Config Operator</a>
+</li>
+<li><a href="nodes-containers-dev-fuse-configuring_enable-faster-container-builds.html">Configure /dev/fuse for unprivileged builds in pods</a>
+</li>
+<li><a href="create-a-kubeletconfig-crd-to-edit-kubelet-parameters_create-a-kubeletconfig-cr-to-edit-kubelet-parameters.html">Create a KubeletConfig CR to edit kubelet parameters</a>
+</li>
+</ul>
+</li>
+<li><a href="_networking.html">Networking</a>
+
+<ul class="sectlevel2">
+<li><a href="understand-ovn-kubernetes-network-plugin-con_understand-ovn-kubernetes-network-plugin.html">Understand the OVN-Kubernetes network plugin</a>
+</li>
+<li><a href="private-clusters-about_restrict-the-api-server-to-private.html">About private clusters</a>
+</li>
+<li><a href="configure-and-maintain-the-pod-network-cni-con_configure-and-maintain-the-pod-network-cni.html">Configure and maintain the pod network</a>
+</li>
+<li><a href="plan-a-multiple-network-architecture-con_plan-a-multiple-network-architecture.html">Plan a multiple network architecture</a>
+</li>
+<li><a href="networking-guidance-for-hosted-control-planes-con_networking-guidance-for-hosted-control-planes.html">Networking guidance for hosted control planes</a>
+</li>
+<li><a href="provision-user-defined-and-ovn-kubernetes-secondary-segments-con_provision-user-defined-and-ovn-kubernetes-secondary-segments.html">Provision user-defined and OVN-Kubernetes secondary segments</a>
+</li>
+<li><a href="install-multus-related-networking-components-con_install-multus-related-networking-components.html">Install Multus-related networking components</a>
+</li>
+<li><a href="provision-multus-secondary-networks-and-addressing-con_provision-multus-secondary-networks-and-addressing.html">Provision Multus secondary networks and addressing</a>
+</li>
+<li><a href="connect-workloads-to-additional-networks-con_connect-workloads-to-additional-networks.html">Connect workloads to additional networks</a>
+</li>
+<li><a href="control-traffic-on-secondary-networks-con_control-traffic-on-secondary-networks.html">Control traffic on secondary networks</a>
+</li>
+<li><a href="nw-networkpolicy-about_configure-network-policies.html">About network policy</a>
+</li>
+<li><a href="understand-network-policies-and-administrative-network-policies-con_understand-network-policies-and-administrative-network-policies.html">Network policies and administrative network policies</a>
+</li>
+<li><a href="design-and-layer-network-policy-across-the-cluster-con_design-and-layer-network-policy-across-the-cluster.html">Design and layer network policy across the cluster</a>
+</li>
+<li><a href="enforce-non-negotiable-platform-security-baselines-con_enforce-non-negotiable-platform-security-baselines.html">Enforce non-negotiable platform security baselines</a>
+</li>
+<li><a href="review-namespace-policy-and-verify-admin-policy-deployment-con_review-namespace-policy-and-verify-admin-policy-deployment.html">Review namespace policy and verify admin policy deployment</a>
+</li>
+<li><a href="install-networking-operators-con_install-networking-operators.html">Install networking Operators</a>
+</li>
+<li><a href="nw-understanding-networking-managing-traffic-entering-leaving_understand-traffic-management-entering-and-leaving-the-cluster.html">Manage traffic entering and leaving the cluster</a>
+</li>
+<li><a href="secure-network-traffic-con_secure-network-traffic.html">Secure network traffic</a>
+</li>
+<li><a href="security-network-egress_control-outbound-access-and-protect-data-in-transit.html">Secure egress traffic</a>
+</li>
+<li><a href="monitor-networking-operator-health-con_monitor-networking-operator-health.html">Monitor networking operator health</a>
+</li>
+<li><a href="monitor-administrative-policy-health-con_monitor-administrative-policy-health.html">Monitor administrative policy health</a>
+</li>
+<li><a href="configure-cluster-wide-pki-con_configure-cluster-wide-pki.html">Configure a cluster-wide PKI</a>
+</li>
+<li><a href="isolate-routing-domains-for-advanced-workloads-con_isolate-routing-domains-for-advanced-workloads.html">Isolate routing domains for advanced workloads</a>
+</li>
+<li><a href="configure-route-advertisements-con_configure-route-advertisements.html">Configure route advertisements</a>
+</li>
+<li><a href="configure-external-dns-integration-con_configure-external-dns-integration.html">Configure External DNS integration</a>
+</li>
+<li><a href="configure-load-balancing-con_configure-load-balancing.html">Configure load balancing</a>
+</li>
+<li><a href="configure-ingress-and-routes-con_configure-ingress-and-routes.html">Configure ingress and routes</a>
+</li>
+<li><a href="configure-high-performance-networking-con_configure-high-performance-networking.html">Configure high-performance networking</a>
+</li>
+<li><a href="network-observability-operator_understand-network-observability-netobserv.html">Network Observability Operator</a>
+</li>
+<li><a href="private-clusters-about_configure-a-private-cluster.html">About private clusters</a>
+</li>
+<li><a href="configure-dns-records-in-a-private-zone-con_configure-dns-records-in-a-private-zone.html">Configure DNS records in a private zone</a>
+</li>
+<li><a href="set-the-ingress-controller-to-private-con_set-the-ingress-controller-to-private.html">Set the Ingress Controller to private</a>
+</li>
+<li><a href="restrict-the-api-server-to-private-for-aws-con_restrict-the-api-server-to-private-for-aws.html">Restrict the API server to private for AWS</a>
+</li>
+<li><a href="configure-ptp-clock-synchronization-intro_configure-ptp-clock-synchronization.html">Configure PTP clock synchronization</a>
+</li>
+<li><a href="reconfigure-sno-cluster-networking-intro_reconfigure-sno-cluster-networking.html">Reconfigure single-node OpenShift cluster networking</a>
+</li>
+<li><a href="assign-sriov-networks-to-vrf-intro_assign-sriov-networks-to-vrf.html">Assign SR-IOV networks to a VRF</a>
+</li>
+</ul>
+</li>
+<li><a href="_storage.html">Storage</a>
+
+<ul class="sectlevel2">
+<li><a href="automate-dynamic-storage-provisioning-con_automate-dynamic-storage-provisioning.html">Automate dynamic storage provisioning</a>
+</li>
+<li><a href="container-storage-interface-migration-con_container-storage-interface-migration.html">Container Storage Interface migration</a>
+</li>
+<li><a href="container-storage-interface-volumes-con_container-storage-interface-volumes.html">Container Storage Interface volumes</a>
+</li>
+<li><a href="ibm-virtual-public-cloud-block-storage-con_ibm-virtual-public-cloud-block-storage.html">IBM Virtual Private Cloud block storage</a>
+</li>
+<li><a href="storage-ephemeral-storage-overview_manage-ephemeral-storage.html">Overview of ephemeral storage</a>
+</li>
+<li><a href="persistent-storage-overview_understand-persistent-storage.html">Persistent storage overview</a>
+</li>
+<li><a href="persistent-storage-csi-cloning-overview_manage-persistent-volumes.html">Overview of CSI volume cloning</a>
+</li>
+<li><a href="persistent-storage-csi-azure-file-cross-sub-dynamic-pre-provisioning-pv-pvc-procedure_manage-persistent-volume-claims.html">Static provisioning across subscriptions for Azure File by creating a PV and PVC:</a>
+</li>
+<li><a href="storage-persistent-storage-pvc-volumeattributesclass_optimize-performance-with-volume-attribute-classes.html">Volume Attributes Classes</a>
+</li>
+<li><a href="block-volume-support_provision-raw-block-volumes.html">Block volume support</a>
+</li>
+<li><a href="storage-persistent-storage-fsgroup_reduce-pod-timeouts-using-fsgroup.html">Reduce pod timeouts by using fsGroup</a>
+</li>
+<li><a href="nfs-selinux_reduce-pod-timouts-using-selinuxchangepolicy.html">SELinux</a>
+</li>
+<li><a href="persistent-storage-csi-azure-disk-overview_azure-disk-storage.html">Overview of Azure Disk CSI Driver Operator</a>
+</li>
+<li><a href="persistent-storage-csi-azure-file-overview_azure-file-storage.html">Overview</a>
+</li>
+<li><a href="persistent-storage-csi-cinder-overview_storage-on-openstack-with-cinder.html">Overview</a>
+</li>
+<li><a href="provisioning-fibre_storage-with-fibre-channel.html">About provisioning storage using Fibre Channel</a>
+</li>
+<li><a href="expanding-flexvolume_storage-for-legacy-volume-plugins-with-flexvolume.html">Expanding FlexVolume with a supported driver</a>
+</li>
+<li><a href="storage-create-storage-class_google-cloud-engine-persistent-storage.html">About the {StorageClass} storage class</a>
+</li>
+<li><a href="persistent-storage-iscsi-provisioning_network-attached-block-storage-with-iscsi.html">Provisioning</a>
+</li>
+<li><a href="persistent-storage-csi-azure-file-nfs_shared-file-storage-with-network-file-storage.html">NFS support</a>
+</li>
+<li><a href="vsphere-change-max-snapshot_openshift-on-vsphere-storage.html">Changing the maximum number of snapshots for vSphere</a>
+</li>
+<li><a href="local-storage-overview_local-storage-options.html">Local Storage Operator overview</a>
+</li>
+<li><a href="local-storage-intro_local-storage-with-the-local-storage-operator.html">Local Storage Operator</a>
+</li>
+<li><a href="persistent-storage-hostpath-about_local-storage-with-the-hostpath-provisioner-for-virtualization.html">Overview of hostPath</a>
+</li>
+<li><a href="lvms-about-lvm-storage-installation_local-storage-with-the-logical-volume-manager.html">Logical Volume Manager Storage installation</a>
+</li>
+<li><a href="ephemeral-storage-csi-inline-overview_temporary-storage-with-inline-ephemeral-volumes.html">Overview of CSI inline ephemeral volumes</a>
+</li>
+<li><a href="persistent-storage-csi-azure-disk-perf-plus-create-new-disk-by-snapshot-clone_backup-and-clone-volume-snapshots.html">Enabling performance plus by snapshot or cloning</a>
+</li>
+<li><a href="persistent-storage-csi-group-snapshots-overview_capture-consistent-group-snapshots.html">Overview of CSI volume group snapshots</a>
+</li>
+<li><a href="persistent-storage-csi-azure-disk-perf-plus-create-new-disk-by-snapshot-clone_clone-storage-volumes.html">Enabling performance plus by snapshot or cloning</a>
+</li>
+<li><a href="persistent-storage-csi-vol-populator_prepopulate-storage-volumes.html">Volume populators overview</a>
+</li>
+<li><a href="persistent-storage-csi-sc-intro_configure-default-storage-classes.html">Configure the default storage class</a>
+</li>
+<li><a href="persistent-storage-csi-aws-ebs-intro_aws-elastic-block-store-operator.html">AWS EBS CSI Driver Operator</a>
+</li>
+<li><a href="efs-driver-overview_aws-elastic-file-storage.html">Overview</a>
+</li>
+<li><a href="persistent-storage-csi-azure-disk-overview_azure-disk-csi-driver-operator.html">Overview of Azure Disk CSI Driver Operator</a>
+</li>
+<li><a href="persistent-storage-csi-azure-file-overview_azure-file-csi-driver-operator.html">Overview</a>
+</li>
+<li><a href="persistent-storage-csi-azure-stack-hub-overview_azure-stack.html">Overview of Azure Stack Hub</a>
+</li>
+<li><a href="persistent-storage-csi-gcp-pd-overview_gcp-persistent-disk-csi.html">Overview of GCP PD CSI Driver Operator</a>
+</li>
+<li><a href="persistent-storage-csi-google-cloud-file-intro_google-cloud-filestore.html">Google Cloud Filestore CSI Driver Operator</a>
+</li>
+<li><a href="persistent-storage-csi-ibm-powervs-block-intro_ibm-power-virtual-server-block-storage.html">Introduction to IBM Power&#174; Virtual Server Block CSI Driver Operator</a>
+</li>
+<li><a href="persistent-storage-csi-cinder-overview_configure-openstack-cinder-csi.html">Overview</a>
+</li>
+<li><a href="persistent-storage-csi-manila-overview_shared-file-storage-with-openstack-manila.html">Overview of Manila CSI Driver Operator</a>
+</li>
+<li><a href="persistent-storage-csi-smb-cifs-overview_windows-file-share-storage.html">Overview of the CIFS/SMB Driver Operator</a>
+</li>
+<li><a href="vsphere-change-max-snapshot_configure-vmware-storage-with-vsphere-csi-driver-operator.html">Changing the maximum number of snapshots for vSphere</a>
+</li>
+<li><a href="generic-ephemeral-vols-overview_configure-generic-ephemeral-volumes.html">Overview of generic ephemeral volumes</a>
+</li>
+<li><a href="add-volume-expansion_resize-persistent-volumes.html">Enabling volume expansion support</a>
+</li>
+<li><a href="persistent-storage-csi-vol-detach-non-graceful-overview_detach-volumes-after-non-graceful-node-shutdown.html">Overview</a>
+</li>
+</ul>
+</li>
+<li><a href="_secure.html">Secure</a>
+
+<ul class="sectlevel2">
+<li><a href="manage-user-authentication-and-identity-providers-con_manage-user-authentication-and-identity-providers.html">Manage user authentication and identity providers</a>
+</li>
+<li><a href="monitor-platform-vulnerabilities-and-audit-security-incidents-con_monitor-platform-vulnerabilities-and-audit-security-incidents.html">Monitor platform vulnerabilities and audit security incidents</a>
+</li>
+<li><a href="manage-cluster-authorization-and-rbac-permissions-con_manage-cluster-authorization-and-rbac-permissions.html">Manage cluster authorization and RBAC permissions</a>
+</li>
+<li><a href="run-pods-in-linux-user-namespaces-con_run-pods-in-linux-user-namespaces.html">Run pods in Linux user namespaces</a>
+</li>
+<li><a href="demonstrate-compliance-with-regulatory-benchmarks-con_demonstrate-compliance-with-regulatory-benchmarks.html">Demonstrate compliance with regulatory benchmarks</a>
+</li>
+<li><a href="security-platform-certificates_manage-certificates-and-connection-encryption-for-cluster-services.html">Manage certificates for the platform</a>
+</li>
+<li><a href="manage-application-passwords-and-cloud-provider-credentials-con_manage-application-passwords-and-cloud-provider-credentials.html">Manage application passwords and cloud provider credentials</a>
+</li>
+<li><a href="understand-platform-security-layers-and-securable-components-con_understand-platform-security-layers-and-securable-components.html">Understand platform security layers and securable components</a>
+</li>
+<li><a href="control-workload-privileges-and-running-permissions-con_control-workload-privileges-and-running-permissions.html">Control workload privileges and running permissions</a>
+</li>
+<li><a href="configure-workload-and-automation-identities-con_configure-workload-and-automation-identities.html">Configure workload and automation identities</a>
+</li>
+<li><a href="encrypt-sensitive-data-at-rest-con_encrypt-sensitive-data-at-rest.html">Encrypt sensitive data at rest</a>
+</li>
+<li><a href="enable-fips-mode-on-my-nodes-to-enhance-security-con_enable-fips-mode-on-my-nodes-to-enhance-security.html">Enable FIPS mode on your nodes</a>
+</li>
+<li><a href="about-etcd_encrypt-etcd.html">etcd encryption</a>
+</li>
+<li><a href="secure-the-container-software-supply-chain-con_secure-the-container-software-supply-chain.html">Secure the container software supply chain</a>
+</li>
+<li><a href="configure-certificates-for-hosted-control-planes-con_configure-certificates-for-hosted-control-planes.html">Configure certificates for hosted control planes</a>
+</li>
+<li><a href="authentication-and-authorization-for-hosted-control-planes-con_authentication-and-authorization-for-hosted-control-planes.html">Authentication and authorization for hosted control planes</a>
+</li>
+<li><a href="authenticate-workloads-with-private-registries-con_authenticate-workloads-with-private-registries.html">Authenticate workloads with private registries</a>
+</li>
+<li><a href="disable-symmetric-multithreading-on-my-nodes-to-improve-security-con_disable-symmetric-multithreading-on-my-nodes-to-improve-security.html">Disable symmetric multithreading on your nodes</a>
+</li>
+<li><a href="improve-the-security-of-the-usb-ports-on-my-nodes-con_improve-the-security-of-the-usb-ports-on-my-nodes.html">Improve the security of the USB ports on your nodes</a>
+</li>
+<li><a href="enhance-user-authentication-on-my-nodes-con_enhance-user-authentication-on-my-nodes.html">Enhance user authentication on your nodes</a>
+</li>
+<li><a href="enable-customer-managed-encryption-keys-con_enable-customer-managed-encryption-keys.html">Enable customer-managed encryption keys</a>
+</li>
+<li><a href="configure-confidential-vms-con_configure-confidential-vms.html">Configure confidential VMs</a>
+</li>
+<li><a href="isolate-compute-machines-from-other-tenants-con_isolate-compute-machines-from-other-tenants.html">Isolate compute machines from other tenants on AWS</a>
+</li>
+<li><a href="protect-the-instance-metadata-endpoint-for-compute-machines-con_protect-the-instance-metadata-endpoint-for-compute-machines.html">Protect the instance metadata endpoint for compute machines on AWS</a>
+</li>
+<li><a href="harden-boot-integrity-for-compute-machines-con_harden-boot-integrity-for-compute-machines.html">Harden boot integrity for compute machines on GCP</a>
+</li>
+<li><a href="isolate-control-plane-machines-from-other-tenants-con_isolate-control-plane-machines-from-other-tenants.html">Isolate control plane machines from other tenants on AWS</a>
+</li>
+<li><a href="protect-the-instance-metadata-endpoint-for-control-plane-machines-con_protect-the-instance-metadata-endpoint-for-control-plane-machines.html">Protect the instance metadata endpoint for control plane machines on AWS</a>
+</li>
+<li><a href="harden-boot-integrity-for-control-plane-machines-con_harden-boot-integrity-for-control-plane-machines.html">Harden boot integrity for control plane machines</a>
+</li>
+<li><a href="secure-individual-workloads-and-manage-namespace-policy-lifecycle-con_secure-individual-workloads-and-manage-namespace-policy-lifecycle.html">Secure individual workloads and manage namespace policy lifecycle</a>
+</li>
+<li><a href="create-default-network-policy-for-projects-con_create-default-network-policy-for-projects.html">Create default network policy for projects</a>
+</li>
+<li><a href="expose-the-registry-securely-con_expose-the-registry-securely.html">Expose the registry securely</a>
+</li>
+<li><a href="authenticate-to-red-hat-and-third-party-registries-con_authenticate-to-red-hat-and-third-party-registries.html">Authenticate to Red Hat and third-party registries</a>
+</li>
+<li><a href="content-security-policy-overview_configure-content-security-policy-for-plugins.html">Key features of Content Security Policy (CSP)</a>
+</li>
+<li><a href="restrict-the-api-server-to-private-for-azure-con_restrict-the-api-server-to-private-for-azure.html">Restrict the API server to private for Azure</a>
+</li>
+<li><a href="identity-provider-overview_prepare-a-cluster-for-user-access.html">Identity providers in Red&#160;Hat OpenShift Container Platform</a>
+</li>
+<li><a href="registry-configuring-private-storage-endpoint-azure_configure-a-private-storage-endpoint-on-azure.html">Configure a private storage endpoint on Azure</a>
+</li>
+<li><a href="configure-private-storage-endpoint-with-iro-discovery-con_configure-private-storage-endpoint-with-iro-discovery.html">Configure a private storage endpoint by using Image Registry Operator discovery</a>
+</li>
+<li><a href="configure-private-storage-endpoint-with-user-provided-vnet-con_configure-private-storage-endpoint-with-user-provided-vnet.html">Configure a private storage endpoint with a user-provided VNet</a>
+</li>
+<li><a href="compliance-operator-release-notes_review-compliance-operator-release-notes.html">Compliance Operator release notes</a>
+</li>
+<li><a href="file-integrity-operator-release-notes_review-file-integrity-operator-release-notes.html">File Integrity Operator release notes</a>
+</li>
+<li><a href="security-profiles-operator-release-notes_review-security-profiles-operator-release-notes.html">Security Profiles Operator release notes</a>
+</li>
+<li><a href="understand-telco-cluster-security-intro_understand-telco-cluster-security.html">Understand telco cluster security</a>
+</li>
+<li><a href="nodes-containers-projected-volumes-about_map-configuration-sources-with-projected-volumes.html">Understanding projected volumes</a>
+</li>
+</ul>
+</li>
+<li><a href="_observe.html">Observe</a>
+
+<ul class="sectlevel2">
+<li><a href="monitor-machine-config-daemon-metrics-con_monitor-machine-config-daemon-metrics.html">Monitor Machine Config Daemon metrics</a>
+</li>
+<li><a href="monitor-network-performance-con_monitor-network-performance.html">Monitor network performance</a>
+</li>
+<li><a href="size-monitoring-infrastructure-con_size-monitoring-infrastructure.html">Size monitoring infrastructure</a>
+</li>
+<li><a href="nw-networkpolicy-audit-concept_observe-audit-and-review-policy-enforcement.html">Audit logging</a>
+</li>
+<li><a href="monitor-control-plane-nodes-con_monitor-control-plane-nodes.html">Monitor control plane nodes</a>
+</li>
+<li><a href="hcp-cp-metrics-overview_monitor-hosted-control-planes.html">Control plane metrics for hosted control planes</a>
+</li>
+<li><a href="monitor-image-registry-health-con_monitor-image-registry-health.html">Monitor image registry health</a>
+</li>
+<li><a href="enable-pressure-stall-information-monitoring-con_enable-pressure-stall-information-monitoring.html">Enable Pressure Stall Information monitoring</a>
+</li>
+<li><a href="install-node-observability-operator_install-the-node-observability-operator.html">Installing the Node Observability Operator</a>
+</li>
+<li><a href="requesting-crio-kubelet-profiling-using-noo_profile-node-performance-with-node-observability.html">Requesting CRI-O and Kubelet profiling data using the Node Observability Operator</a>
+</li>
+<li><a href="virt-about-the-overview-dashboard_view-cluster-resource-utilization.html">About the Red&#160;Hat OpenShift Container Platform dashboards page</a>
+</li>
+<li><a href="view-node-status-and-resource-usage-con_view-node-status-and-resource-usage.html">View node status and resource usage</a>
+</li>
+<li><a href="view-pod-status-and-logs-con_view-pod-status-and-logs.html">View pod status and logs</a>
+</li>
+<li><a href="observe-telco-cluster-health-intro_observe-telco-cluster-health.html">Observe telco cluster health</a>
+</li>
+</ul>
+</li>
+<li><a href="_integrate.html">Integrate</a>
+
+<ul class="sectlevel2">
+<li><a href="ai-app-mcp-server-intro_mcp-server-overview.html">MCP server for Red&#160;Hat OpenShift</a>
+</li>
+<li><a href="configure-external-dns-integration-con_configure-external-dns-integration.html">Configure External DNS integration</a>
+</li>
+<li><a href="automate-cicd-with-image-streams-intro_automate-cicd-with-image-streams.html">Automate CI/CD with image streams</a>
+</li>
+</ul>
+</li>
+<li><a href="_optimize.html">Optimize</a>
+
+<ul class="sectlevel2">
+<li><a href="about-node-tuning-operator_node-tuning-operator.html">Node Tuning Operator</a>
+</li>
+<li><a href="setting_up_cpu_manager_configure-cpu-isolation-for-latency-sensitive-workloads.html">Set up CPU Manager</a>
+</li>
+<li><a href="cnf-about-numa-aware-scheduling_schedule-numa-aware-workloads.html">About NUMA-aware scheduling</a>
+</li>
+<li><a href="using-the-nfd-topology-updater_enable-nfd-topology-updater-for-numa-topology.html">Use the NFD Topology Updater</a>
+</li>
+<li><a href="what-huge-pages-do_huge-pages.html">What huge pages do</a>
+</li>
+<li><a href="cnf-understanding-low-latency_apply-low-latency-tuning-and-workload-partitioning.html">About low latency</a>
+</li>
+<li><a href="nodes-cluster-worker-latency-profiles-about_configure-worker-latency-profiles-for-high-latency-networks.html">Understanding worker latency profiles</a>
+</li>
+<li><a href="etcd-best-practices-con_etcd-best-practices.html">etcd best practices</a>
+</li>
+<li><a href="etcd-database-size_scale-etcd-database-size.html">Determine the size of the etcd database and understand its effects</a>
+</li>
+<li><a href="understand-etcd-performance_understand-etcd-performance-factors.html">Factors that affect etcd performance</a>
+</li>
+<li><a href="infrastructure-components_create-infrastructure-nodes.html">Move components to infrastructure nodes to reduce costs</a>
+</li>
+<li><a href="make-changes-to-the-kubelet-settings-on-my-nodes-overview_make-changes-to-the-kubelet-settings-on-my-nodes.html">Allocate resources to nodes</a>
+</li>
+<li><a href="nodes-nodes-working-evacuating_evacuate-pods-on-a-node.html">Evacuate pods on nodes</a>
+</li>
+<li><a href="nodes-cluster-limit-ranges-about_restrict-resource-consumption-with-limit-ranges.html">About limit ranges</a>
+</li>
+<li><a href="admin-quota-overview_set-resource-quotas-for-a-project.html">Resources managed by quota</a>
+</li>
+<li><a href="quotas-resources-managed_set-per-project-resource-quotas.html">Resources managed by quotas</a>
+</li>
+<li><a href="quotas-setting-projects_set-cluster-resource-quotas.html">Selecting multiple projects during quota creation</a>
+</li>
+<li><a href="container-limits_configure-compute-resource-limits.html">Container limits</a>
+</li>
+<li><a href="optimizing-storage-azure_optimize-infrastructure-for-specific-platforms.html">Optimizing storage performance for Microsoft Azure</a>
+</li>
+<li><a href="optimizing-mtu_tune-network-performance.html">Optimizing the MTU for your network</a>
+</li>
+<li><a href="nodes-nodes-managing-max-pods-proc_adjust-maximum-number-of-pods-on-a-node.html">Configure the maximum number of pods per node</a>
+</li>
+<li><a href="scale-compute-resources-con_scale-compute-resources.html">Scale workloads to match demand</a>
+</li>
+<li><a href="nodes-cluster-resource-configure-about_configure-cluster-memory-to-meet-container-memory-and-risk-requirements.html">Understanding how to manage application memory</a>
+</li>
+<li><a href="follow-ibm-z-platform-specific-recommendations-con_plan-for-ibm-z-and-linuxone-platforms.html">Follow IBM Z platform-specific recommendations</a>
+</li>
+<li><a href="scalability-and-performance-recommended-practices_optimize-cluster-performance-across-subsystems.html">Recommended performance and scalability practices</a>
+</li>
+<li><a href="add-cri-o-storage-locations-for-faster-container-startup-con_add-cri-o-storage-locations-for-faster-container-startup.html">Add CRI-O storage locations for faster container startup</a>
+</li>
+<li><a href="nodes-pods-adjust-resources-in-place-about_adjust-pod-resource-levels-without-pod-disruption.html">About in-place pod resizing</a>
+</li>
+<li><a href="nodes-overview-about-autoscaling-pods_automatically-scale-clusters-based-on-custom-metrics.html">About autoscaling pods on a node</a>
+</li>
+<li><a href="optimize-workload-placement-intro_optimize-workload-placement.html">Optimize workload placement</a>
+</li>
+<li><a href="etcd-tuning-parameters_optimize-etcd-performance.html">Set tuning parameters for etcd</a>
+</li>
+<li><a href="nodes-cluster-overcommit-about_control-the-level-of-overcommitted-pods.html">Understanding overcommitment</a>
+</li>
+<li><a href="nodes-nodes-parallel-container-pulls-about_configure-parallel-configuration-image-pulls.html">About configuring parallel container image pulls</a>
+</li>
+<li><a href="nodes-nodes-kernel-arguments_customize-kernel-behavior.html">Add kernel arguments to nodes</a>
+</li>
+<li><a href="rodoo-about_run-once-duration-override-operator.html">About the Run Once Duration Override Operator</a>
+</li>
+<li><a href="machine-configuration-for-hosted-control-planes-overview_machine-configuration-for-hosted-control-planes.html">Scale hosted clusters</a>
+</li>
+<li><a href="cnf-about-hyper-threading-for-low-latency-and-real-time-applications_enable-symmetric-multithreading-on-my-nodes-to-improve-efficiency.html">About Hyper-Threading for low latency and real-time applications</a>
+</li>
+<li><a href="scale-compute-capacity-con_scale-compute-capacity.html">Scale compute capacity</a>
+</li>
+<li><a href="machine-mgmt-intro-add-for-upi_add-compute-machines-manually.html">Compute machine creation on user-provisioned infrastructure</a>
+</li>
+<li><a href="machine-mgmt-intro-autoscaling_configure-automated-machine-scaling-in-an-ocp-cluster.html">Cluster autoscaling</a>
+</li>
+<li><a href="machineset-label-gpu-autoscaler_label-gpu-machine-sets-for-autoscaler.html">Label GPU machine sets for the cluster autoscaler</a>
+</li>
+<li><a href="use-interruptible-capacity-for-lower-cost-machines-con_use-interruptible-capacity-for-lower-cost-machines.html">Use interruptible capacity for lower-cost machines</a>
+</li>
+<li><a href="reserve-capacity-for-planned-workloads-overview_reserve-capacity-for-planned-workloads.html">Reserve capacity for planned workloads on AWS and Azure</a>
+</li>
+<li><a href="accelerate-workloads-with-gpus-con_accelerate-workloads-with-gpus.html">Accelerate workloads with GPUs</a>
+</li>
+<li><a href="improve-network-performance-for-compute-machines-con_improve-network-performance-for-compute-machines.html">Improve network performance for compute machines</a>
+</li>
+<li><a href="improve-storage-performance-for-compute-machines-con_improve-storage-performance-for-compute-machines.html">Improve storage performance for compute machines</a>
+</li>
+<li><a href="keep-data-off-the-root-volume-for-compute-machines-overview_keep-data-off-the-root-volume-for-compute-machines.html">Keep data off the root volume for machines on vSphere</a>
+</li>
+<li><a href="kueue-ai-ml-workloads-intro_run-ai-and-ml-workloads-with-red-hat-build-of-kueue.html">Run AI and ML workloads with Red&#160;Hat build of Kueue</a>
+</li>
+<li><a href="deploy-ai-inference-workloads-with-leader-worker-set-operator-intro_deploy-ai-inference-workloads-with-leader-worker-set-operator.html">Deploy AI inference workloads with the Leader Worker Set Operator</a>
+</li>
+<li><a href="manage-large-scale-ai-training-workloads-with-jobset-operator-intro_manage-large-scale-ai-training-workloads-with-jobset-operator.html">Manage large-scale AI training workloads with the JobSet Operator</a>
+</li>
+<li><a href="nodes-nodes-garbage-collection-containers_free-node-resources-with-garbage-collection.html">Understanding how terminated containers are removed through garbage collection</a>
+</li>
+<li><a href="configure-node-resource-limits-con_configure-node-resource-limits.html">Configure node resource limits</a>
+</li>
+<li><a href="reserve-cpus-for-ovs-dpdk-workloads-intro_reserve-cpus-for-ovs-dpdk-workloads.html">Reserve CPUs for OVS-DPDK workloads</a>
+</li>
+</ul>
+</li>
+<li><a href="_extend.html">Extend</a>
+
+<ul class="sectlevel2">
+<li><a href="install-and-delete-cluster-extensions-con_install-and-delete-cluster-extensions.html">Install and delete cluster extensions</a>
+</li>
+<li><a href="add-nodes-to-the-cluster-con_add-nodes-to-the-cluster.html">Add nodes to the cluster</a>
+</li>
+<li><a href="nodes-containers-port-forwarding-about_configure-port-forwarding-to-pods.html">Understand port forwarding</a>
+</li>
+<li><a href="infrastructure-components_create-infrastructure-nodes-to-host-infrastructure-workloads.html">Move components to infrastructure nodes to reduce costs</a>
+</li>
+<li><a href="select-cluster-capabilities-con_select-cluster-capabilities.html">Select cluster capabilities</a>
+</li>
+<li><a href="customize-the-web-console-con_customize-the-web-console.html">Customize the web console</a>
+</li>
+<li><a href="understanding-quick-starts_create-quick-start-tutorials.html">Understand quick starts</a>
+</li>
+<li><a href="deploy-a-plugin-on-a-cluster-con_deploy-a-plugin-on-a-cluster.html">Deploy a plugin on a cluster</a>
+</li>
+<li><a href="develop-dynamic-plugins-con_develop-dynamic-plugins.html">Develop dynamic plugins</a>
+</li>
+<li><a href="optional-capabilities-operators_discover-optional-capabilities-and-product-integrations.html">Enhance the Red&#160;Hat OpenShift Container Platform web console with Operators</a>
+</li>
+<li><a href="enable-a-dynamic-plugin-with-the-cli-con_enable-a-dynamic-plugin-with-the-cli.html">Enable a dynamic plugin with the CLI</a>
+</li>
+<li><a href="cluster-autoscaler-about_enable-autoscaling-for-cluster-nodes.html">The cluster autoscaler</a>
+</li>
+<li><a href="control-user-access-to-extensions-con_control-user-access-to-extensions.html">Control user access to extensions</a>
+</li>
+<li><a href="extend-the-openshift-cli-with-plugins-intro_extend-the-openshift-cli-with-plugins.html">Extend the OpenShift CLI with plugins</a>
+</li>
+<li><a href="cli-manager-about_manage-cli-plugins-with-the-cli-manager.html">About the CLI Manager Operator</a>
+</li>
+<li><a href="nodes-pods-plugins-about_manage-kernel-modules-across-cluster-nodes-deploy-device-plugins-alongside-kernel-modules.html">Understand device plugins</a>
+</li>
+<li><a href="explore-cluster-extension-capabilities-con_explore-cluster-extension-capabilities.html">Understand cluster extensions with OLM v1</a>
+</li>
+<li><a href="check-cluster-extension-support-con_check-cluster-extension-support.html">Review supported cluster extensions with OLM v1</a>
+</li>
+<li><a href="install-cluster-extensions-with-olmv1-con_install-cluster-extensions-with-olmv1.html">Install cluster extensions with OLM v1</a>
+</li>
+<li><a href="configure-cluster-extensions-con_configure-cluster-extensions.html">Configure cluster extensions with OLM v1</a>
+</li>
+<li><a href="update-and-rollback-cluster-extensions-with-olmv1-con_update-and-rollback-cluster-extensions-with-olmv1.html">Update and roll back cluster extensions with OLM v1</a>
+</li>
+<li><a href="remove-cluster-extensions-with-olmv1-con_remove-cluster-extensions-with-olmv1.html">Remove cluster extensions with OLM v1</a>
+</li>
+<li><a href="control-access-to-cluster-extension-resources-with-olmv1-con_control-access-to-cluster-extension-resources-with-olmv1.html">Control access to cluster extension resources with OLM v1</a>
+</li>
+<li><a href="monitor-cluster-extensions-with-olmv1-con_monitor-cluster-extensions-with-olmv1.html">Monitor cluster extensions with OLM v1</a>
+</li>
+<li><a href="troubleshoot-cluster-extensions-with-olmv1-con_troubleshoot-cluster-extensions-with-olmv1.html">Troubleshoot cluster extensions with OLM v1</a>
+</li>
+<li><a href="understand-olmv0-resources-con_understand-operator-lifecycle-manager-concepts-and-resources.html">Understand Operator lifecycle management with OLM (Classic)</a>
+</li>
+<li><a href="install-operators-with-olmv0-con_install-operators-with-olmv0.html">Install Operators with OLM (Classic)</a>
+</li>
+<li><a href="update-installed-operators-con_update-installed-operators.html">Update installed Operators with OLM (Classic)</a>
+</li>
+<li><a href="ocp-map-delete-operators-from-a-cluster-intro_delete-operators-from-a-cluster.html">Delete Operators with OLM (Classic)</a>
+</li>
+<li><a href="ocp-map-create-applications-from-installed-operators-intro_create-applications-from-installed-operators.html">Create applications from Operators installed with OLM (Classic)</a>
+</li>
+<li><a href="ocp-map-configure-operator-lifecycle-manager-features-intro_configure-operator-lifecycle-manager-features.html">Configure OLM (Classic) features</a>
+</li>
+<li><a href="ocp-map-configure-operator-lifecycle-manager-proxy-support-intro_configure-operator-lifecycle-manager-proxy-support.html">Configure Operator proxy support with OLM (Classic)</a>
+</li>
+<li><a href="ocp-map-view-operator-status-intro_view-operator-status.html">Monitor Operators with OLM (Classic)</a>
+</li>
+<li><a href="ocp-map-troubleshoot-operator-issues-intro_troubleshoot-operator-issues.html">Troubleshoot Operators with OLM (Classic)</a>
+</li>
+<li><a href="prepare-catalogs-con_prepare-catalogs.html">Prepare catalogs</a>
+</li>
+<li><a href="manage-catalogs-with-olmv1-con_manage-catalogs-with-olmv1.html">Manage catalogs with OLM v1</a>
+</li>
+<li><a href="manage-catalogs-with-olmv0-con_manage-catalogs-with-olmv0.html">Manage catalogs with OLM (Classic)</a>
+</li>
+<li><a href="extend-the-kubernetes-api-with-custom-resource-definitions-con_crd-extending-api-with-crds.html">Extend the Kubernetes API with custom resource definitions</a>
+</li>
+</ul>
+</li>
+<li><a href="_validate.html">Validate</a>
+
+<ul class="sectlevel2">
+<li><a href="validate-cluster-health-after-installation-intro_validate-cluster-health-after-installation.html">Validate cluster health after installation</a>
+</li>
+<li><a href="verify-node-state-after-installation-con_verify-node-state-after-installation.html">Verify node state after installation</a>
+</li>
+<li><a href="validate-telco-configuration-compliance-intro_validate-telco-configuration-compliance.html">Validate telco configuration compliance</a>
+</li>
+<li><a href="network-policy-validation-intro_network-policy-validation.html">Network policy validation</a>
+</li>
+<li><a href="cnf-measuring-latency_validate-node-performance-with-latency-tests.html">Measuring latency</a>
+</li>
+<li><a href="compare-cluster-configurations-intro_compare-cluster-configurations.html">Compare cluster configurations</a>
+</li>
+</ul>
+</li>
+<li><a href="_troubleshoot.html">Troubleshoot</a>
+<ul class="sectlevel2">
+<li><a href="troubleshoot-installation-issues-intro_troubleshoot-installation-issues.html">Troubleshoot installation issues</a>
+</li>
+<li><a href="allow-the-configuration-drift-to-remain-and-return-the-node-to-ready-state-con_allow-the-configuration-drift-to-remain-and-return-the-node-to-ready-state.html">Allow the configuration drift to remain and return the node to ready state</a>
+</li>
+<li><a href="escalate-an-unresolved-issue-to-red-hat-con_escalate-an-unresolved-issue-to-red-hat.html">Escalate an unresolved issue to Red Hat</a>
+</li>
+<li><a href="incident-investigation-71-compare-traffic-patterns-before-and-during-incident-con_incident-investigation-71-compare-traffic-patterns-before-and-during-incident.html">Compare traffic patterns before and during an incident</a>
+</li>
+<li><a href="remediate-node-configuration-drift-to-return-the-node-to-ready-con_remediate-node-configuration-drift-to-return-the-node-to-ready.html">Remediate node configuration drift to return the node to ready</a>
+</li>
+<li><a href="collecting-windows-application-event-logs_gather-information-and-debugging-data-for-windows.html">Collect Windows application event logs</a>
+</li>
+<li><a href="restart-hosted-control-plane-components-and-pause-reconciliation-con_restart-hosted-control-plane-components-and-pause-reconciliation.html">Restart hosted control plane components and pause reconciliation</a>
+</li>
+<li><a href="hcp-ts-internal-subnets_troubleshoot-hosted-clusters-internal-subnets.html">Known limitations for internal subnets for hosted clusters</a>
+</li>
+<li><a href="hosted-control-planes-troubleshooting_gather-data-to-troubleshoot-hosted-clusters.html">Gather information to troubleshoot hosted control planes</a>
+</li>
+<li><a href="troubleshoot-hosted-clusters-by-platform-troubleshoot-hosted-clusters-on-bare-metal-con_troubleshoot-hosted-clusters-by-platform-troubleshoot-hosted-clusters-on-bare-metal.html">Troubleshoot hosted clusters on bare metal</a>
+</li>
+<li><a href="troubleshoot-hosted-clusters-by-platform-troubleshoot-hosted-clusters-on-ibmz-con_troubleshoot-hosted-clusters-by-platform-troubleshoot-hosted-clusters-on-ibmz.html">Troubleshoot hosted clusters on IBM Z</a>
+</li>
+<li><a href="hcp-ts-ocp-virt_troubleshoot-hosted-clusters-by-platform-troubleshoot-hosted-clusters-on-openshift-virtualization.html">Troubleshoot hosted clusters on OpenShift Virtualization</a>
+</li>
+<li><a href="recover-unhealthy-etcd-cluster-for-hosted-control-planes-con_recover-unhealthy-etcd-cluster-for-hosted-control-planes.html">Recover an unhealthy etcd cluster for hosted control planes</a>
+</li>
+<li><a href="backup-and-restore-etcd-on-a-hosted-cluster-intro_backup-and-restore-etcd-on-a-hosted-cluster.html">Back up and restore etcd on a hosted cluster</a>
+</li>
+<li><a href="backup-and-restore-etcd-on-management-cluster-intro_backup-and-restore-etcd-on-management-cluster.html">Back up and restore etcd on the management cluster</a>
+</li>
+<li><a href="backup-etcd-data-for-hosted-control-planes-using-etcd-snapshot-intro_backup-etcd-data-for-hosted-control-planes-using-etcd-snapshot.html">Back up etcd data for hosted control planes by using the etcd snapshot method</a>
+</li>
+<li><a href="backup-and-restore-hosted-cluster-on-openshift-virtualization-intro_backup-and-restore-hosted-cluster-on-openshift-virtualization.html">Back up and restore a hosted cluster on OpenShift Virtualization</a>
+</li>
+<li><a href="high-availability-for-hosted-control-planes-about_high-availability-and-disaster-recovery-for-hosted-control-planes.html">High availability and disaster recovery for hosted control planes</a>
+</li>
+<li><a href="hcp-disaster-recovery-aws-con_disaster-recovery-for-hosted-control-planes-on-aws.html">Disaster recovery for a hosted cluster in AWS</a>
+</li>
+<li><a href="hcp-azure-automated-dr_disaster-recovery-for-hosted-control-planes-on-azure.html">Automated disaster recovery for hosted control planes on Azure</a>
+</li>
+<li><a href="hcp-azure-etcd-snapshot_backup-and-restore-for-hosted-control-planes-on-azure.html">Backup and restore for hosted control planes on Azure</a>
+</li>
+<li><a href="hcp-disaster-recovery-oadp-con_disaster-recovery-for-hosted-control-planes-using-oadp.html">Disaster recovery for a hosted cluster by using OADP</a>
+</li>
+<li><a href="hcp-disaster-recovery-oadp-auto-con_automated-disaster-recovery-for-hosted-control-planes-using-oadp.html">Automated disaster recovery for a hosted cluster by using OADP</a>
+</li>
+<li><a href="post-using-node-tuning-operator_troubleshoot-node-performance-issues.html">Using the Node Tuning Operator</a>
+</li>
+<li><a href="nw-pod-network-connectivity-checks_connectivity-troubleshooting.html">Connection health checks that are performed</a>
+</li>
+<li><a href="nw-network-flows-object_incident-investigation.html">Network object configuration for tracking network flows</a>
+</li>
+<li><a href="inspecting-pod-and-container-logs_troubleshoot-containers.html">Inspect pod and container logs</a>
+</li>
+<li><a href="troubleshoot-containers-investigate-pod-issues-con_troubleshoot-containers-investigate-pod-issues.html">Investigate pod issues</a>
+</li>
+<li><a href="troubleshoot-containers-troubleshoot-crio-issues-con_troubleshoot-containers-troubleshoot-crio-issues.html">Troubleshoot CRI-O issues</a>
+</li>
+<li><a href="nw-pod-network-connectivity-checks_troubleshoot-network-issues.html">Connection health checks that are performed</a>
+</li>
+<li><a href="collecting-windows-application-event-logs_view-cluster-events.html">Collect Windows application event logs</a>
+</li>
+<li><a href="nodes-containers-events-about_detect-and-resolve-node-issues.html">Understanding events</a>
+</li>
+<li><a href="inspecting-pod-and-container-logs_copy-files-to-or-from-containers.html">Inspect pod and container logs</a>
+</li>
+<li><a href="run-a-command-in-a-container-con_run-a-command-in-a-container.html">Run a command in a container</a>
+</li>
+<li><a href="enabling-etcd-quorum-guard_replace-failed-bare-metal-control-plane-nodes-without-bmc-credentials.html">Re-enabling the etcd quorum guard</a>
+</li>
+<li><a href="querying-operator-status-after-installation_troubleshoot-extension-installation.html">Querying Operator status after installation</a>
+</li>
+<li><a href="troubleshooting-s2i_troubleshoot-source-to-image-builds.html">Troubleshooting the Source-to-Image process</a>
+</li>
+<li><a href="setting-resource-requests-for-a-nodeagent-pod_evaluate-pod-health.html">Set resource requests for a nodeAgent pod</a>
+</li>
+<li><a href="post-install-etcd-tasks_defragment-etcd-data.html">etcd tasks</a>
+</li>
+<li><a href="understand-etcd-performance_move-etcd-to-a-different-disk.html">Factors that affect etcd performance</a>
+</li>
+<li><a href="nw-pod-network-connectivity-checks_troubleshoot-connectivity-and-internal-subnets.html">Connection health checks that are performed</a>
+</li>
+<li><a href="troubleshoot-machine-management-con_troubleshoot-machine-management.html">Troubleshoot machine management</a>
+</li>
+<li><a href="control-plane-backup-restore-operations-overview_investigate-an-active-cluster-issue.html">Control plane backup and restore operations</a>
+</li>
+<li><a href="understanding-oc-log-levels_identify-resource-limits-and-quotas-in-topology-view.html">Understand OpenShift CLI (<code>oc</code>) log levels</a>
+</li>
+<li><a href="nw-networkpolicy-project-defaults_troubleshoot-web-terminal-startup-failures.html">Add network policies to the new project template</a>
+</li>
+<li><a href="oadp-performance-network-requirements_troubleshoot-node-performance-issues-collect-node-profiling-data.html">OADP network requirements</a>
+</li>
+<li><a href="nw-ingress-sharding-route-labels_troubleshoot-network-issues-133-troubleshoot-ingress-and-routes.html">Configure Ingress Controller sharding by using route labels</a>
+</li>
+<li><a href="investigating-master-node-installation-issues_troubleshoot-network-issues-131-access-cluster-nodes-for-diagnostics.html">Investigating control plane node installation issues</a>
+</li>
+<li><a href="troubleshoot-ovn-kubernetes-networking-issues-con_troubleshoot-ovn-kubernetes-networking-issues.html">Troubleshoot OVN-Kubernetes networking issues</a>
+</li>
+<li><a href="nw-pod-network-connectivity-checks_configure-and-maintain-the-pod-network-cni-225-diagnose-and-resolve-node-network-configuration-errors.html">Connection health checks that are performed</a>
+</li>
+<li><a href="investigating-master-node-installation-issues_manage-kernel-modules-across-cluster-nodes-troubleshoot-kernel-module-loading-issues.html">Investigating control plane node installation issues</a>
+</li>
+<li><a href="troubleshoot-operating-system-issues-con_troubleshoot-operating-system-issues.html">Troubleshoot operating system issues</a>
+</li>
+<li><a href="nw-ovn-kubernetes-pod-connectivity-checks_connectivity-troubleshooting-11-diagnose-failed-connections-between-pods-and-services.html">Checking the OVN-Kubernetes pod network connectivity</a>
+</li>
+<li><a href="nw-pod-network-connectivity-checks_connectivity-troubleshooting-12-identify-traffic-blocked-by-network-policies.html">Connection health checks that are performed</a>
+</li>
+<li><a href="oadp-performance-network-requirements_connectivity-troubleshooting-13-locate-packet-drops-and-network-errors.html">OADP network requirements</a>
+</li>
+<li><a href="nw-pod-network-connectivity-checks_connectivity-troubleshooting-14-trace-connectivity-failures-through-network-path.html">Connection health checks that are performed</a>
+</li>
+<li><a href="oadp-performance-network-requirements_incident-investigation-73-locate-packet-drops-that-occurred-during-incident.html">OADP network requirements</a>
+</li>
+<li><a href="oadp-vmfr-end-to-end-workflow_incident-investigation-74-query-historical-flow-data-for-root-cause-analysis.html">Test the VM file restore workflow</a>
+</li>
+<li><a href="rosa-troubleshooting-general-deployment-failure_incident-investigation-75-reconstruct-timeline-of-network-events.html">Connectivity issues on clusters with private network load balancers</a>
+</li>
+<li><a href="oadp-vmfr-end-to-end-workflow_incident-investigation-76-filter-flows-to-isolate-affected-workloads-and-services.html">Test the VM file restore workflow</a>
+</li>
+<li><a href="oadp-vmfr-end-to-end-workflow_incident-investigation-77-export-incident-flow-data-for-post-mortem-analysis.html">Test the VM file restore workflow</a>
+</li>
+<li><a href="network-observability-health-alert-overview_anomaly-detection-84-alert-on-violations-of-network-health-rules.html">Health alerts</a>
+</li>
+<li><a href="nodes-scheduler-pod-topology-spread-constraints-examples_investigate-an-active-cluster-issue-inspect-targeted-component-logs.html">Example configurations for pod topology spread constraints</a>
+</li>
+<li><a href="gathering-bootstrap-diagnostic-data_investigate-an-active-cluster-issue-troubleshoot-cluster-issues.html">Gathering bootstrap node diagnostic data</a>
+</li>
+<li><a href="gathering-operator-logs_investigate-an-active-cluster-issue-extract-diagnostic-data-using-remote-health-tools.html">Gather Operator logs</a>
+</li>
+<li><a href="collect-comprehensive-data-for-vendor-support-con_investigate-an-active-cluster-issue-collect-comprehensive-data-for-vendor-support.html">Collect comprehensive data for vendor support</a>
+</li>
+<li><a href="collect-host-sosreports-and-journal-logs-con_investigate-an-active-cluster-issue-collect-host-sosreports-and-journal-logs.html">Collect host sosreports and journal logs</a>
+</li>
+<li><a href="capture-network-traces-for-support-con_investigate-an-active-cluster-issue-capture-network-traces-for-support.html">Capture network traces for support</a>
+</li>
+<li><a href="use-host-toolbox-for-diagnostics-con_investigate-an-active-cluster-issue-use-host-toolbox-for-diagnostics.html">Use the host toolbox for diagnostics</a>
+</li>
+<li><a href="understanding-oc-log-levels_investigate-an-active-cluster-issue-summarize-cluster-specifications.html">Understand OpenShift CLI (<code>oc</code>) log levels</a>
+</li>
+<li><a href="post-install-etcd-tasks_defragment-etcd-data-automatically-defragment-etcd-data.html"><span class="toc-current">etcd tasks</span></a>
+</li>
+<li><a href="removing-etcd-member_monitor-control-plane-nodes-identify-an-unhealthy-etcd-member.html">Removing the unhealthy etcd member</a>
+</li>
+<li><a href="removing-etcd-member_monitor-control-plane-nodes-determine-state-of-an-unhealthy-etcd-member.html">Removing the unhealthy etcd member</a>
+</li>
+<li><a href="restore-replace-unhealthy-etcd-member_monitor-control-plane-nodes-replace-unhealthy-etcd-member.html">Replacing the unhealthy etcd member</a>
+</li>
+<li><a href="enabling-etcd-quorum-guard_encrypt-etcd-recover-from-expired-control-plane-certificates.html">Re-enabling the etcd quorum guard</a>
+</li>
+<li><a href="control-plane-backup-restore-operations-overview_encrypt-etcd-test-restore-procedures.html">Control plane backup and restore operations</a>
+</li>
+<li><a href="troubleshoot-clusters-that-use-the-cluster-api-con_troubleshoot-clusters-that-use-the-cluster-api.html">Troubleshoot clusters that use the Cluster API</a>
+</li>
+<li><a href="troubleshoot-the-control-plane-machine-set-con_troubleshoot-the-control-plane-machine-set.html">Troubleshoot the control plane machine set</a>
+</li>
+<li><a href="collect-console-logs-from-machines-that-fail-to-boot-con_collect-console-logs-from-machines-that-fail-to-boot.html">Collect console logs from machines that fail to boot</a>
+</li>
+<li><a href="storage-troubleshooting-intro_troubleshoot-storage.html">Troubleshooting storage</a>
+</li>
+<li><a href="troubleshoot-telco-cluster-operations-intro_troubleshoot-telco-cluster-operations.html">Troubleshoot telco cluster operations</a>
+</li>
+<li><a href="tnf-cluster-degradation-causes_troubleshoot-a-degraded-two-node-cluster-with-fencing.html">TNF cluster degradation causes</a>
+</li>
+</ul>
+</li>
+<li><a href="_reference.html">Reference</a>
+
+<ul class="sectlevel2">
+<li><a href="understand-terminology-and-definitions-con_understand-terminology-and-definitions.html">Understand terminology and definitions</a>
+</li>
+<li><a href="openshift-cli-reference-intro_openshift-cli-reference.html">OpenShift CLI reference</a>
+</li>
+<li><a href="reference-image-registry-configuration-con_reference-image-registry-configuration.html">Reference image registry configuration</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<aside id="navmap-right-toc" aria-label="On this page"><h2>On this page</h2><ul><li class="level-4"><a href="#etcd-defrag_defragment-etcd-data-automatically-defragment-etcd-data">Data defragmentation for etcd</a></li><li class="level-4"><a href="#automatic-defrag-etcd-data_defragment-etcd-data-automatically-defragment-etcd-data">Automatic defragmentation</a></li></ul></aside>
+<div id="content">
+<div class="sect2">
+<h3 id="post-install-etcd-tasks_defragment-etcd-data-automatically-defragment-etcd-data">etcd tasks</h3>
+<div class="paragraph _abstract">
+<p>Back up etcd, enable or disable etcd encryption, or defragment etcd data.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="data:image/png;base64," alt="Note">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you deployed a bare-metal cluster, you can scale the cluster up to 5 nodes as part of your post-installation tasks.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="etcd-defrag_defragment-etcd-data-automatically-defragment-etcd-data">Data defragmentation for etcd</h4>
+<div class="paragraph _abstract">
+<p>To prevent etcd performance degradation and cluster-wide maintenance alarms on large clusters, monitor etcd database metrics and defragment the data store when the keyspace grows too large.</p>
+</div>
+<div class="paragraph">
+<p>For large and dense clusters, etcd can suffer from poor performance if the keyspace grows too large and exceeds the space quota. Periodically maintain and defragment etcd to free up space in the data store. Monitor Prometheus for etcd metrics and defragment it when required. Otherwise, etcd can raise a cluster-wide alarm that puts the cluster into a maintenance mode, which accepts only key reads and deletes.</p>
+</div>
+<div class="paragraph">
+<p>Monitor these key metrics:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>etcd_server_quota_backend_bytes</code>, which is the current quota limit</p>
+</li>
+<li>
+<p><code>etcd_mvcc_db_total_size_in_use_in_bytes</code>, which indicates the actual database usage after a history compaction</p>
+</li>
+<li>
+<p><code>etcd_mvcc_db_total_size_in_bytes</code>, which shows the database size, including free space waiting for defragmentation</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Defragment etcd data to reclaim disk space after events that cause disk fragmentation, such as etcd history compaction.</p>
+</div>
+<div class="paragraph">
+<p>History compaction is performed automatically every five minutes and leaves gaps in the back-end database. This fragmented space is available for use by etcd, but is not available to the host file system. You must defragment etcd to make this space available to the host file system.</p>
+</div>
+<div class="paragraph">
+<p>Defragmentation occurs automatically, but you can also trigger it manually.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="automatic-defrag-etcd-data_defragment-etcd-data-automatically-defragment-etcd-data">Automatic defragmentation</h4>
+<div class="paragraph _abstract">
+<p>When etcd database growth affects performance, the etcd Operator can automatically defragment member disks based on cluster metrics.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="data:image/png;base64," alt="Note">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Automatic defragmentation works well in most cases because the etcd Operator uses cluster metrics to choose the most efficient defragmentation approach.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The etcd Operator automatically defragments disks. No manual intervention is needed.</p>
+</div>
+<div class="paragraph">
+<p>Verify that defragmentation succeeded by checking one of these logs:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>etcd logs</p>
+</li>
+<li>
+<p>cluster-etcd-operator pod</p>
+</li>
+<li>
+<p>operator status error log</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<img src="data:image/png;base64," alt="Warning">
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Automatic defragmentation can cause leader election failure in various Red&#160;Hat OpenShift Container Platform core components, such as the Kubernetes controller manager, which triggers a restart of the failing component. The restart is harmless and either triggers failover to the next running instance or the component resumes work again after the restart.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following is example log output for successful defragmentation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-terminal" data-lang="terminal">etcd member has been defragmented: <em>&lt;member_name&gt;</em>, memberID: <em>&lt;member_id&gt;</em></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The following is example log output for unsuccessful defragmentation:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-terminal" data-lang="terminal">failed defrag on member: <em>&lt;member_name&gt;</em>, memberID: <em>&lt;member_id&gt;</em>: <em>&lt;error_message&gt;</em></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="paragraph nav-footer">
+<p>← Previous: <a href="understanding-oc-log-levels_investigate-an-active-cluster-issue-summarize-cluster-specifications.html">Understand OpenShift CLI (&lt;code&gt;oc&lt;/code&gt;) log levels</a> | ↑ Up: <a href="_troubleshoot.html">Troubleshoot</a> | ⌂ Home: <a href="navigation.html">Red Hat OpenShift Container Platform</a> | Next: <a href="removing-etcd-member_monitor-control-plane-nodes-identify-an-unhealthy-etcd-member.html">Removing the unhealthy etcd member</a> →</p>
+</div>
+</div>
+<div id="footnotes">
+<hr>
+<div class="footnote" id="_footnotedef_1">
+<a href="install-and-use-the-openshift-cli-oc-intro_install-and-use-the-openshift-cli-oc.html#_footnoteref_1">1</a>. Where <strong>N</strong> is a number greater than or equal to 1.
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2026-10-29 12:02:06 +0000
+</div>
+</div>
+<style>
+  #toc ul li.has-children > ul {
+    display: none;
+  }
+  #toc ul li.has-children.open > ul {
+    display: block;
+  }
+  .toc-toggle {
+    cursor: pointer;
+    margin-right: 4px;
+    font-size: 0.75em;
+    user-select: none;
+    display: inline-block;
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var STORAGE_KEY = 'navmap-toc-state';
+    var state;
+    try { state = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
+    catch(e) { state = {}; }
+
+    var currentPage = location.pathname.split('/').pop();
+
+    document.querySelectorAll('#toc li').forEach(function(li) {
+      var sublist = li.querySelector(':scope > ul');
+      if (!sublist) return;
+
+      li.classList.add('has-children');
+      var toggle = document.createElement('span');
+      toggle.className = 'toc-toggle';
+      toggle.textContent = '\u25B6';
+
+      var link = li.querySelector(':scope > a');
+      var key = link ? link.getAttribute('href').split('#')[0] : '';
+
+      var isCurrentSection = false;
+      li.querySelectorAll('a[href]').forEach(function(a) {
+        if (a.getAttribute('href').split('#')[0] === currentPage) {
+          isCurrentSection = true;
+        }
+      });
+
+      if (state[key] === true || isCurrentSection) {
+        li.classList.add('open');
+        toggle.textContent = '\u25BC';
+        if (isCurrentSection) { state[key] = true; }
+      }
+
+      li.insertBefore(toggle, li.firstChild);
+      toggle.addEventListener('click', function() {
+        var expanded = li.classList.toggle('open');
+        toggle.textContent = expanded ? '\u25BC' : '\u25B6';
+        state[key] = expanded;
+        try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+        catch(e) {}
+      });
+    });
+
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+    catch(e) {}
+
+    /* --- Scroll current page into view in the TOC --- */
+    var toc = document.getElementById('toc');
+    if (toc) {
+      var cur = toc.querySelector('a[href="' + currentPage + '"]');
+      if (!cur) { cur = toc.querySelector('a[href$="/' + currentPage + '"]'); }
+      if (cur) {
+        cur.style.fontWeight = 'bold';
+        /* Defer scroll so the browser's own scroll-restore runs first */
+        requestAnimationFrame(function() {
+          setTimeout(function() {
+            cur.scrollIntoView({ block: 'center', behavior: 'instant' });
+          }, 0);
+        });
+      }
+    }
+  });
+</script>
+</body>
+</html>
